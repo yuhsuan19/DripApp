@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3494BB802CC511A400490373 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 3494BB7F2CC511A400490373 /* web3.swift */; };
 		34AC12352CC39CB6001044D3 /* DripApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC12342CC39CB6001044D3 /* DripApp.swift */; };
 		34AC12372CC39CB6001044D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC12362CC39CB6001044D3 /* ContentView.swift */; };
 		34AC12392CC39CB6001044D3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC12382CC39CB6001044D3 /* Item.swift */; };
@@ -15,6 +16,9 @@
 		34AC12482CC39CB7001044D3 /* DripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC12472CC39CB7001044D3 /* DripTests.swift */; };
 		34AC12522CC39CB7001044D3 /* DripUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC12512CC39CB7001044D3 /* DripUITests.swift */; };
 		34AC12542CC39CB7001044D3 /* DripUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC12532CC39CB7001044D3 /* DripUITestsLaunchTests.swift */; };
+		34AC126A2CC39DB5001044D3 /* Web3Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 34AC12692CC39DB5001044D3 /* Web3Auth */; };
+		34AC126E2CC3A058001044D3 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC126D2CC3A058001044D3 /* LaunchViewModel.swift */; };
+		34AC12712CC3A099001044D3 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC12702CC3A099001044D3 /* LaunchScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,8 @@
 		34AC124D2CC39CB7001044D3 /* DripUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DripUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34AC12512CC39CB7001044D3 /* DripUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripUITests.swift; sourceTree = "<group>"; };
 		34AC12532CC39CB7001044D3 /* DripUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		34AC126D2CC3A058001044D3 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		34AC12702CC3A099001044D3 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34AC126A2CC39DB5001044D3 /* Web3Auth in Frameworks */,
+				3494BB802CC511A400490373 /* web3.swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				34AC12342CC39CB6001044D3 /* DripApp.swift */,
+				34AC126B2CC39E1D001044D3 /* Services */,
+				34AC126C2CC3A03F001044D3 /* Scenes */,
 				34AC12362CC39CB6001044D3 /* ContentView.swift */,
 				34AC12382CC39CB6001044D3 /* Item.swift */,
 				34AC123A2CC39CB7001044D3 /* Assets.xcassets */,
@@ -130,6 +140,30 @@
 			path = DripUITests;
 			sourceTree = "<group>";
 		};
+		34AC126B2CC39E1D001044D3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		34AC126C2CC3A03F001044D3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				34AC126F2CC3A05C001044D3 /* Launch */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		34AC126F2CC3A05C001044D3 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				34AC126D2CC3A058001044D3 /* LaunchViewModel.swift */,
+				34AC12702CC3A099001044D3 /* LaunchScreen.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +180,10 @@
 			dependencies = (
 			);
 			name = Drip;
+			packageProductDependencies = (
+				34AC12692CC39DB5001044D3 /* Web3Auth */,
+				3494BB7F2CC511A400490373 /* web3.swift */,
+			);
 			productName = Drip;
 			productReference = 34AC12312CC39CB6001044D3 /* Drip.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +256,10 @@
 				Base,
 			);
 			mainGroup = 34AC12282CC39CB6001044D3;
+			packageReferences = (
+				34AC12682CC39DB5001044D3 /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */,
+				3494BB7E2CC511A400490373 /* XCRemoteSwiftPackageReference "web3" */,
+			);
 			productRefGroup = 34AC12322CC39CB6001044D3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,7 +302,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34AC126E2CC3A058001044D3 /* LaunchViewModel.swift in Sources */,
 				34AC12372CC39CB6001044D3 /* ContentView.swift in Sources */,
+				34AC12712CC3A099001044D3 /* LaunchScreen.swift in Sources */,
 				34AC12392CC39CB6001044D3 /* Item.swift in Sources */,
 				34AC12352CC39CB6001044D3 /* DripApp.swift in Sources */,
 			);
@@ -432,8 +476,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,9 +486,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuhsuan.Drip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -461,8 +510,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,9 +520,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuhsuan.Drip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -592,6 +646,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3494BB7E2CC511A400490373 /* XCRemoteSwiftPackageReference "web3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argentlabs/web3.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.1;
+			};
+		};
+		34AC12682CC39DB5001044D3 /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Web3Auth/web3auth-swift-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3494BB7F2CC511A400490373 /* web3.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3494BB7E2CC511A400490373 /* XCRemoteSwiftPackageReference "web3" */;
+			productName = web3.swift;
+		};
+		34AC12692CC39DB5001044D3 /* Web3Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34AC12682CC39DB5001044D3 /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */;
+			productName = Web3Auth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 34AC12292CC39CB6001044D3 /* Project object */;
 }
