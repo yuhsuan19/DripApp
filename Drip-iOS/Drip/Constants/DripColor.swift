@@ -13,6 +13,7 @@ enum DripColor {
     static let darkSub: Color = Color(red: 5/255, green: 55/255, blue: 66/255)
     static let lightSub: Color = Color(red: 162/255, green: 219/255, blue: 250/255)
     static let backgroundGrey: Color = Color(red: 232/255, green: 240/255, blue: 242/255)
+    static let warning: Color = Color(red: 239/255, green: 156/255, blue: 102/255)
 
     static let mainText: Color = Color(red: 64/255, green: 66/255, blue: 88/255)
     static let subText: Color = Color(red: 80/255, green: 87/255, blue: 142/255)

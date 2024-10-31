@@ -58,5 +58,4 @@ extension DripApp {
         let sigInScreen = SignInScreen(viewModel: viewModel)
         return sigInScreen
     }
-
 }

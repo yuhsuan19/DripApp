@@ -10,6 +10,13 @@ import SwiftUI
 struct ActionButton: View {
     var title: String
     var action: (() -> Void)?
+    let backgroundColor: Color
+
+    init(title: String, backgroundColor: Color = DripColor.main, action: (() -> Void)? = nil) {
+        self.title = title
+        self.backgroundColor = backgroundColor
+        self.action = action
+    }
 
     var body: some View {
         Button(action: {
@@ -20,14 +27,18 @@ struct ActionButton: View {
                 .foregroundColor(.white)
                 .padding(.init(20))
                 .frame(maxWidth: .infinity)
-                .background(DripColor.main)
+                .background(backgroundColor)
                 .cornerRadius(20)
         }
       }
 }
 
 #Preview {
-    ActionButton(title: "Button Title", action: nil)
-        .padding()
+    ActionButton(
+        title: "Button Title",
+        backgroundColor: DripColor.warning,
+        action: nil
+    )
+    .padding()
 }
 

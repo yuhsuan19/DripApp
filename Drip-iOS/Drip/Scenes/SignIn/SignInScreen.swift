@@ -17,15 +17,14 @@ struct SignInScreen: View {
     }
 
     var body: some View {
-        VStack() {
+        VStack {
             Image(.dripLogoStroke)
                 .resizable()
                 .frame(width: 100 ,height: 100)
             Text("Welcome")
                 .foregroundStyle(DripColor.darkSub)
                 .font(.system(size: 49, weight: .bold))
-            Spacer()
-                .frame(height: 30)
+            Spacer().frame(height: 30)
             TextInputField(text: $emailText, placeholder: "E-mail")
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled(true)
@@ -34,8 +33,7 @@ struct SignInScreen: View {
             ActionButton(title: "Sign in With Web3Auth") {
                 viewModel.signIn(with: emailText)
             }
-            Spacer()
-                .frame(height: 30)
+            Spacer().frame(height: 30)
         }
         .padding(.init(top: 80, leading: 24, bottom: 0, trailing: 24))
         .frame(maxWidth: .infinity, maxHeight: .infinity)

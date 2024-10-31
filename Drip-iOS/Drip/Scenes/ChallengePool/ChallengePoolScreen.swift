@@ -8,8 +8,28 @@
 import SwiftUI
 
 struct ChallengePoolScreen: View {
+    @State private var isPresentingProfileScreen = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Spacer()
+                Button(action: {
+                    isPresentingProfileScreen = true
+                }) {
+                    ProfileChip()
+                }
+            }
+            Spacer()
+        }
+        .padding(.init(top: 16, leading: 20, bottom: 0, trailing: 20))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(DripColor.backgroundGrey.ignoresSafeArea())
+        .sheet(isPresented: $isPresentingProfileScreen, onDismiss: {
+            isPresentingProfileScreen = false
+        }) {
+            ProfileScreen()
+        }
     }
 }
 
