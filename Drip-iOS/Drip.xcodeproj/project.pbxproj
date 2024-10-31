@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3433B6632CD0D48D002FCA1E /* TextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6622CD0D48D002FCA1E /* TextInputField.swift */; };
+		3433B6652CD0DA2E002FCA1E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6642CD0DA2E002FCA1E /* ActionButton.swift */; };
+		3433B66D2CD22797002FCA1E /* Web3AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B66C2CD22797002FCA1E /* Web3AuthService.swift */; };
+		3433B6702CD22FD3002FCA1E /* UserSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B66F2CD22FD3002FCA1E /* UserSessionState.swift */; };
 		3494BB802CC511A400490373 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 3494BB7F2CC511A400490373 /* web3.swift */; };
+		3494BB842CCE148A00490373 /* DripColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB832CCE148A00490373 /* DripColor.swift */; };
+		3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB872CCE196C00490373 /* SignInViewModel.swift */; };
+		3494BB8A2CCE198400490373 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB892CCE198400490373 /* SignInScreen.swift */; };
 		34AC12352CC39CB6001044D3 /* DripApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC12342CC39CB6001044D3 /* DripApp.swift */; };
 		34AC12372CC39CB6001044D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC12362CC39CB6001044D3 /* ContentView.swift */; };
 		34AC12392CC39CB6001044D3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC12382CC39CB6001044D3 /* Item.swift */; };
@@ -39,6 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3433B6622CD0D48D002FCA1E /* TextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputField.swift; sourceTree = "<group>"; };
+		3433B6642CD0DA2E002FCA1E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		3433B66C2CD22797002FCA1E /* Web3AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3AuthService.swift; sourceTree = "<group>"; };
+		3433B66F2CD22FD3002FCA1E /* UserSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionState.swift; sourceTree = "<group>"; };
+		3494BB832CCE148A00490373 /* DripColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripColor.swift; sourceTree = "<group>"; };
+		3494BB872CCE196C00490373 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		3494BB892CCE198400490373 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
 		34AC12312CC39CB6001044D3 /* Drip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34AC12342CC39CB6001044D3 /* DripApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripApp.swift; sourceTree = "<group>"; };
 		34AC12362CC39CB6001044D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +95,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3433B6612CD0D46A002FCA1E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3433B6622CD0D48D002FCA1E /* TextInputField.swift */,
+				3433B6642CD0DA2E002FCA1E /* ActionButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3433B6662CD210DB002FCA1E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3433B66E2CD22F9B002FCA1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3433B66F2CD22FD3002FCA1E /* UserSessionState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3494BB812CCE146400490373 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3494BB832CCE148A00490373 /* DripColor.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		3494BB862CCE195B00490373 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				3494BB872CCE196C00490373 /* SignInViewModel.swift */,
+				3494BB892CCE198400490373 /* SignInScreen.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		34AC12282CC39CB6001044D3 = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +160,10 @@
 			isa = PBXGroup;
 			children = (
 				34AC12342CC39CB6001044D3 /* DripApp.swift */,
+				3433B66E2CD22F9B002FCA1E /* Models */,
+				3494BB812CCE146400490373 /* Constants */,
 				34AC126B2CC39E1D001044D3 /* Services */,
+				3433B6612CD0D46A002FCA1E /* Components */,
 				34AC126C2CC3A03F001044D3 /* Scenes */,
 				34AC12362CC39CB6001044D3 /* ContentView.swift */,
 				34AC12382CC39CB6001044D3 /* Item.swift */,
@@ -143,6 +201,7 @@
 		34AC126B2CC39E1D001044D3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3433B66C2CD22797002FCA1E /* Web3AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -150,6 +209,8 @@
 		34AC126C2CC3A03F001044D3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3433B6662CD210DB002FCA1E /* Profile */,
+				3494BB862CCE195B00490373 /* SignIn */,
 				34AC126F2CC3A05C001044D3 /* Launch */,
 			);
 			path = Scenes;
@@ -302,11 +363,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3494BB842CCE148A00490373 /* DripColor.swift in Sources */,
+				3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */,
+				3433B66D2CD22797002FCA1E /* Web3AuthService.swift in Sources */,
 				34AC126E2CC3A058001044D3 /* LaunchViewModel.swift in Sources */,
 				34AC12372CC39CB6001044D3 /* ContentView.swift in Sources */,
+				3433B6632CD0D48D002FCA1E /* TextInputField.swift in Sources */,
 				34AC12712CC3A099001044D3 /* LaunchScreen.swift in Sources */,
+				3494BB8A2CCE198400490373 /* SignInScreen.swift in Sources */,
 				34AC12392CC39CB6001044D3 /* Item.swift in Sources */,
 				34AC12352CC39CB6001044D3 /* DripApp.swift in Sources */,
+				3433B6702CD22FD3002FCA1E /* UserSessionState.swift in Sources */,
+				3433B6652CD0DA2E002FCA1E /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
