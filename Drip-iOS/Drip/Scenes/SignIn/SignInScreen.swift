@@ -9,11 +9,14 @@ import SwiftUI
 
 struct SignInScreen: View {
 
+    var onSignIn: (() -> Void)?
+
     @StateObject private var viewModel: SignInViewModel
     @State private var emailText: String = ""
 
-    init(viewModel: SignInViewModel) {
+    init(viewModel: SignInViewModel, onSignIn: (() -> Void)? = nil) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.onSignIn = onSignIn
     }
 
     var body: some View {
@@ -26,6 +29,7 @@ struct SignInScreen: View {
                 .font(.system(size: 49, weight: .bold))
             Spacer().frame(height: 30)
             TextInputField(text: $emailText, placeholder: "E-mail")
+                .foregroundStyle(DripColor.mainText)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled(true)
                 .keyboardType(.emailAddress)
@@ -40,7 +44,7 @@ struct SignInScreen: View {
         .background(DripColor.backgroundGrey.ignoresSafeArea())
         .onChange(of: viewModel.isSignedIn) {
             guard viewModel.isSignedIn else { return }
-            print("sign in")
+            onSignIn?()
         }
     }
 }

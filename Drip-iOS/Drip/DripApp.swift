@@ -55,7 +55,9 @@ extension DripApp {
 
     private func configSignInScreen() -> SignInScreen {
         let viewModel = SignInViewModel(web3AuthService: web3AuthService)
-        let sigInScreen = SignInScreen(viewModel: viewModel)
+        let sigInScreen = SignInScreen(viewModel: viewModel) {
+            userSessionState = .active
+        }
         return sigInScreen
     }
 }

@@ -11,11 +11,19 @@ struct TextInputField: View {
     @Binding var text: String
     var placeholder: String
     var body: some View {
-        TextField(placeholder, text: $text)
-            .padding(.init(24))
-            .background(DripColor.lightSub.opacity(0.15))
-            .cornerRadius(12)
-            .font(.system(size: 14))
+        ZStack(alignment: .leading) {
+            if text.isEmpty {
+                Text(placeholder)
+                    .foregroundColor(DripColor.lightText)
+                    .font(.system(size: 14))
+                    .padding(.leading, 24)
+            }
+            TextField(placeholder, text: $text)
+                .padding(.init(24))
+                .background(DripColor.lightSub.opacity(0.15))
+                .cornerRadius(12)
+                .font(.system(size: 14))
+        }
     }
 }
 
