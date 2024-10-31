@@ -20,9 +20,11 @@ struct DripApp: App {
             case .launching:
                 configLaunchScreen()
             case .guest:
-                SignInScreen()
+                configSignInScreen()
             case .active:
-                SignInScreen()
+                NavigationStack {
+                    ChallengePoolScreen()
+                }
             }
         }
     }
@@ -46,12 +48,15 @@ extension DripApp {
     private func configLaunchScreen() -> LaunchScreen {
         let viewModel = LaunchViewModel(web3AuthService: web3AuthService)
         let launchScreen = LaunchScreen(viewModel: viewModel) {
-            if web3AuthService.user == nil {
-                userSessionState = .guest
-            } else {
-                print("already sign in")
-            }
+            userSessionState = (web3AuthService.user == nil) ? .guest : .active
         }
         return launchScreen
     }
+
+    private func configSignInScreen() -> SignInScreen {
+        let viewModel = SignInViewModel(web3AuthService: web3AuthService)
+        let sigInScreen = SignInScreen(viewModel: viewModel)
+        return sigInScreen
+    }
+
 }

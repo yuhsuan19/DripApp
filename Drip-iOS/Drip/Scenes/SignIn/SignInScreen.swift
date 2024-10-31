@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct SignInScreen: View {
-    @State var sampleText: String = ""
+
+    @StateObject private var viewModel: SignInViewModel
+    @State private var emailText: String = ""
+
+    init(viewModel: SignInViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
         VStack() {
             Image(.dripLogoStroke)
@@ -19,18 +26,28 @@ struct SignInScreen: View {
                 .font(.system(size: 49, weight: .bold))
             Spacer()
                 .frame(height: 30)
-            TextInputField(text: $sampleText, placeholder: "E-mail")
+            TextInputField(text: $emailText, placeholder: "E-mail")
+                .textInputAutocapitalization(.never)
+                .autocorrectionDisabled(true)
+                .keyboardType(.emailAddress)
             Spacer()
-            ActionButton(title: "Sign in With Web3Auth")
+            ActionButton(title: "Sign in With Web3Auth") {
+                viewModel.signIn(with: emailText)
+            }
             Spacer()
-                .frame(height: 80)
+                .frame(height: 30)
         }
         .padding(.init(top: 80, leading: 24, bottom: 0, trailing: 24))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(DripColor.backgroundGrey.ignoresSafeArea())
+        .onChange(of: viewModel.isSignedIn) {
+            guard viewModel.isSignedIn else { return }
+            print("sign in")
+        }
     }
 }
 
 #Preview {
-    SignInScreen()
+    let viewModel = SignInViewModel(web3AuthService: Web3AuthService())
+    return SignInScreen(viewModel: viewModel)
 }

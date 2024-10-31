@@ -39,9 +39,8 @@ struct LaunchScreen: View {
             viewModel.setUp()
         }
         .onChange(of: viewModel.isSetUpComplete) {
-            if viewModel.isSetUpComplete {
-                setUpCompletion?()
-            }
+            guard viewModel.isSetUpComplete else { return }
+            setUpCompletion?()
         }
     }
 }

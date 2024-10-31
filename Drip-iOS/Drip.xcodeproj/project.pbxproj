@@ -11,6 +11,7 @@
 		3433B6652CD0DA2E002FCA1E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6642CD0DA2E002FCA1E /* ActionButton.swift */; };
 		3433B66D2CD22797002FCA1E /* Web3AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B66C2CD22797002FCA1E /* Web3AuthService.swift */; };
 		3433B6702CD22FD3002FCA1E /* UserSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B66F2CD22FD3002FCA1E /* UserSessionState.swift */; };
+		3433B6732CD38FB9002FCA1E /* ChallengePoolScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6722CD38FB9002FCA1E /* ChallengePoolScreen.swift */; };
 		3494BB802CC511A400490373 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 3494BB7F2CC511A400490373 /* web3.swift */; };
 		3494BB842CCE148A00490373 /* DripColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB832CCE148A00490373 /* DripColor.swift */; };
 		3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB872CCE196C00490373 /* SignInViewModel.swift */; };
@@ -50,6 +51,7 @@
 		3433B6642CD0DA2E002FCA1E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		3433B66C2CD22797002FCA1E /* Web3AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3AuthService.swift; sourceTree = "<group>"; };
 		3433B66F2CD22FD3002FCA1E /* UserSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionState.swift; sourceTree = "<group>"; };
+		3433B6722CD38FB9002FCA1E /* ChallengePoolScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePoolScreen.swift; sourceTree = "<group>"; };
 		3494BB832CCE148A00490373 /* DripColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripColor.swift; sourceTree = "<group>"; };
 		3494BB872CCE196C00490373 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		3494BB892CCE198400490373 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 				3433B66F2CD22FD3002FCA1E /* UserSessionState.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3433B6712CD38F83002FCA1E /* ChallengePool */ = {
+			isa = PBXGroup;
+			children = (
+				3433B6722CD38FB9002FCA1E /* ChallengePoolScreen.swift */,
+			);
+			path = ChallengePool;
 			sourceTree = "<group>";
 		};
 		3494BB812CCE146400490373 /* Constants */ = {
@@ -209,6 +219,7 @@
 		34AC126C2CC3A03F001044D3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3433B6712CD38F83002FCA1E /* ChallengePool */,
 				3433B6662CD210DB002FCA1E /* Profile */,
 				3494BB862CCE195B00490373 /* SignIn */,
 				34AC126F2CC3A05C001044D3 /* Launch */,
@@ -372,6 +383,7 @@
 				34AC12712CC3A099001044D3 /* LaunchScreen.swift in Sources */,
 				3494BB8A2CCE198400490373 /* SignInScreen.swift in Sources */,
 				34AC12392CC39CB6001044D3 /* Item.swift in Sources */,
+				3433B6732CD38FB9002FCA1E /* ChallengePoolScreen.swift in Sources */,
 				34AC12352CC39CB6001044D3 /* DripApp.swift in Sources */,
 				3433B6702CD22FD3002FCA1E /* UserSessionState.swift in Sources */,
 				3433B6652CD0DA2E002FCA1E /* ActionButton.swift in Sources */,
