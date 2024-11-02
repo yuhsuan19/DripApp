@@ -27,7 +27,7 @@ struct ChallengePoolScreen: View {
                 .foregroundStyle(DripColor.main)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 24) {
                     HStack(spacing: 12) {
                         PoolInfoChip(mainText: "30", subText: "Days Remaining")
@@ -68,25 +68,9 @@ struct ChallengePoolScreen: View {
         .padding(.init(top: 16, leading: 24, bottom: 0, trailing: 24))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(DripColor.backgroundGrey.ignoresSafeArea())
-        .sheet(isPresented: $isPresentingProfileScreen, onDismiss: {
-            isPresentingProfileScreen = false
-        }) {
+        .sheet(isPresented: $isPresentingProfileScreen) {
             ProfileScreen()
         }
-    }
-}
-
-extension Color {
-    static func generateRandomColors(count: Int) -> [Color] {
-        return (0..<count).map { _ in Color.random() }
-    }
-
-    static func random() -> Color {
-        return Color(
-            red: Double.random(in: 0...1),
-            green: Double.random(in: 0...1),
-            blue: Double.random(in: 0...1)
-        )
     }
 }
 
