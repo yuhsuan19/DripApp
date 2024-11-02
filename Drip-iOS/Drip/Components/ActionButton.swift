@@ -28,7 +28,7 @@ struct ActionButton: View {
                 .padding(.init(20))
                 .frame(maxWidth: .infinity)
                 .background(backgroundColor)
-                .cornerRadius(20)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
         }
       }
 }
