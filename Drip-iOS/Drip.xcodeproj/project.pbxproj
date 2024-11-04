@@ -23,6 +23,7 @@
 		3433B6872CD66DC3002FCA1E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6862CD66DC3002FCA1E /* ColorExtension.swift */; };
 		3433B68A2CD67B5C002FCA1E /* QuestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6892CD67B5C002FCA1E /* QuestScreen.swift */; };
 		3433B68C2CD67B66002FCA1E /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B68B2CD67B66002FCA1E /* QuestView.swift */; };
+		3433B68E2CD8B470002FCA1E /* StrokeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B68D2CD8B470002FCA1E /* StrokeButton.swift */; };
 		3494BB802CC511A400490373 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 3494BB7F2CC511A400490373 /* web3.swift */; };
 		3494BB842CCE148A00490373 /* DripColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB832CCE148A00490373 /* DripColor.swift */; };
 		3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB872CCE196C00490373 /* SignInViewModel.swift */; };
@@ -74,6 +75,7 @@
 		3433B6862CD66DC3002FCA1E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		3433B6892CD67B5C002FCA1E /* QuestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestScreen.swift; sourceTree = "<group>"; };
 		3433B68B2CD67B66002FCA1E /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
+		3433B68D2CD8B470002FCA1E /* StrokeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeButton.swift; sourceTree = "<group>"; };
 		3494BB832CCE148A00490373 /* DripColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripColor.swift; sourceTree = "<group>"; };
 		3494BB872CCE196C00490373 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		3494BB892CCE198400490373 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				3433B6642CD0DA2E002FCA1E /* ActionButton.swift */,
 				3433B6792CD3B460002FCA1E /* CircleAvatar.swift */,
 				3433B6842CD6657D002FCA1E /* TopToolBar.swift */,
+				3433B68D2CD8B470002FCA1E /* StrokeButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				3494BB8A2CCE198400490373 /* SignInScreen.swift in Sources */,
 				34AC12392CC39CB6001044D3 /* Item.swift in Sources */,
 				3433B6732CD38FB9002FCA1E /* ChallengePoolScreen.swift in Sources */,
+				3433B68E2CD8B470002FCA1E /* StrokeButton.swift in Sources */,
 				3433B68A2CD67B5C002FCA1E /* QuestScreen.swift in Sources */,
 				34AC12352CC39CB6001044D3 /* DripApp.swift in Sources */,
 				3433B6752CD3B139002FCA1E /* ProfileChip.swift in Sources */,
