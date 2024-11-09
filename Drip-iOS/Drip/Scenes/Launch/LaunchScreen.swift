@@ -18,23 +18,24 @@ struct LaunchScreen: View {
     }
 
     var body: some View {
-        VStack {
-            Image(.dripLogoFull)
-                .resizable()
-                .frame(width: 140, height: 140)
-                .padding(.init(top: 0, leading: 0, bottom: 12, trailing: 0))
-            Text("Drip")
-                .font(.system(size: 32, weight: .bold))
-                .foregroundStyle(DripColor.main)
-                .padding(.init(top: 0, leading: 0, bottom: 1, trailing: 0))
-            Text("Never Drop")
-                .font(.system(size: 16, weight: .thin))
-                .foregroundStyle(DripColor.mainText)
+        VStack(spacing: 24) {
             Spacer()
-                .frame(height: 60)
+            Image(.dripLogo)
+                .resizable()
+                .frame(width: 152, height: 160)
+            VStack(spacing: 12) {
+                Image(.dripWordMarkBlack)
+                    .resizable()
+                    .frame(width: 148, height: 86)
+                Text("Never drop.")
+                    .font(.system(size: 18, weight: .light))
+                    .frame(height: 28)
+                    .foregroundStyle(DripColor.primary500Disabled)
+            }
+            Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(DripColor.backgroundGrey.ignoresSafeArea())
+        .background(DripColor.backgroundMain.ignoresSafeArea())
         .onAppear {
             viewModel.setUp()
         }

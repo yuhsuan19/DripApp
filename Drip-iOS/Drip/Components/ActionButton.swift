@@ -23,12 +23,12 @@ struct ActionButton: View {
             action?()
         }) {
             Text(title)
-                .font(.system(size: 14, weight: .semibold))
+                .font(.system(size: 14, weight: .regular))
                 .foregroundColor(.white)
-                .padding(.init(20))
+                .padding(.init(12))
                 .frame(maxWidth: .infinity)
-                .background(backgroundColor)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .background(.black)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
         }
       }
 }
