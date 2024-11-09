@@ -18,4 +18,6 @@ enum DripColor {
     static let mainText: Color = Color(red: 64/255, green: 66/255, blue: 88/255)
     static let subText: Color = Color(red: 80/255, green: 87/255, blue: 142/255)
     static let lightText: Color = Color(red: 107/255, green: 114/255, blue: 142/255)
+
+    static let nounsMain: Color = Color(red: 197/255, green: 73/255, blue: 96/255)
 }

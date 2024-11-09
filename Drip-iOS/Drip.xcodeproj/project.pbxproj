@@ -24,6 +24,9 @@
 		3433B68A2CD67B5C002FCA1E /* QuestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6892CD67B5C002FCA1E /* QuestScreen.swift */; };
 		3433B68C2CD67B66002FCA1E /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B68B2CD67B66002FCA1E /* QuestView.swift */; };
 		3433B68E2CD8B470002FCA1E /* StrokeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B68D2CD8B470002FCA1E /* StrokeButton.swift */; };
+		3433B6912CD9168F002FCA1E /* SetProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6902CD9168F002FCA1E /* SetProfileScreen.swift */; };
+		3433B6932CD91890002FCA1E /* DripAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6922CD91890002FCA1E /* DripAvatar.swift */; };
+		3433B6952CD91E23002FCA1E /* SetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6942CD91E23002FCA1E /* SetProfileViewModel.swift */; };
 		3494BB802CC511A400490373 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 3494BB7F2CC511A400490373 /* web3.swift */; };
 		3494BB842CCE148A00490373 /* DripColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB832CCE148A00490373 /* DripColor.swift */; };
 		3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB872CCE196C00490373 /* SignInViewModel.swift */; };
@@ -76,6 +79,9 @@
 		3433B6892CD67B5C002FCA1E /* QuestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestScreen.swift; sourceTree = "<group>"; };
 		3433B68B2CD67B66002FCA1E /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
 		3433B68D2CD8B470002FCA1E /* StrokeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeButton.swift; sourceTree = "<group>"; };
+		3433B6902CD9168F002FCA1E /* SetProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileScreen.swift; sourceTree = "<group>"; };
+		3433B6922CD91890002FCA1E /* DripAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripAvatar.swift; sourceTree = "<group>"; };
+		3433B6942CD91E23002FCA1E /* SetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewModel.swift; sourceTree = "<group>"; };
 		3494BB832CCE148A00490373 /* DripColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripColor.swift; sourceTree = "<group>"; };
 		3494BB872CCE196C00490373 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		3494BB892CCE198400490373 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
@@ -186,6 +192,16 @@
 			path = QuestScreen;
 			sourceTree = "<group>";
 		};
+		3433B68F2CD9166E002FCA1E /* SetProfile */ = {
+			isa = PBXGroup;
+			children = (
+				3433B6902CD9168F002FCA1E /* SetProfileScreen.swift */,
+				3433B6942CD91E23002FCA1E /* SetProfileViewModel.swift */,
+				3433B6922CD91890002FCA1E /* DripAvatar.swift */,
+			);
+			path = SetProfile;
+			sourceTree = "<group>";
+		};
 		3494BB812CCE146400490373 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +293,7 @@
 		34AC126C2CC3A03F001044D3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3433B68F2CD9166E002FCA1E /* SetProfile */,
 				3433B6882CD676EA002FCA1E /* QuestScreen */,
 				3433B6812CD63278002FCA1E /* ChallangeDetail */,
 				3433B6712CD38F83002FCA1E /* ChallengePool */,
@@ -438,12 +455,15 @@
 				3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */,
 				3433B67E2CD3C8FF002FCA1E /* ProfileRow.swift in Sources */,
 				3433B6782CD3B19D002FCA1E /* StringExtension.swift in Sources */,
+				3433B6932CD91890002FCA1E /* DripAvatar.swift in Sources */,
+				3433B6952CD91E23002FCA1E /* SetProfileViewModel.swift in Sources */,
 				3433B66D2CD22797002FCA1E /* Web3AuthService.swift in Sources */,
 				3433B6802CD61B0F002FCA1E /* PoolInfoChip.swift in Sources */,
 				34AC126E2CC3A058001044D3 /* LaunchViewModel.swift in Sources */,
 				34AC12372CC39CB6001044D3 /* ContentView.swift in Sources */,
 				3433B6832CD63296002FCA1E /* ChallengeDetailScreen.swift in Sources */,
 				3433B6872CD66DC3002FCA1E /* ColorExtension.swift in Sources */,
+				3433B6912CD9168F002FCA1E /* SetProfileScreen.swift in Sources */,
 				3433B67C2CD3C2DA002FCA1E /* ProfileScreen.swift in Sources */,
 				3433B6632CD0D48D002FCA1E /* TextInputField.swift in Sources */,
 				34AC12712CC3A099001044D3 /* LaunchScreen.swift in Sources */,
