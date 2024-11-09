@@ -20,7 +20,9 @@ struct DripApp: App {
             case .launching:
                 configLaunchScreen()
             case .guest:
-                configSignInScreen()
+                NavigationStack {
+                    configSignInScreen()
+                }
             case .active:
                 NavigationStack {
                     ChallengePoolScreen()

@@ -10,6 +10,7 @@ import Combine
 
 final class SignInViewModel: ObservableObject {
     @Published var isSignedIn: Bool = false
+    @Published var needToSetProfile: Bool = false
 
     private let web3AuthService: Web3AuthService
     private var cancellables = Set<AnyCancellable>()
@@ -23,6 +24,10 @@ final class SignInViewModel: ObservableObject {
         Task {
             await web3AuthService.login(with: email)
         }
+    }
+
+    func mockSetProfile() {
+        needToSetProfile = true
     }
 }
 

@@ -33,23 +33,28 @@ struct SignInScreen: View {
                 .font(.system(size: 16, weight: .regular))
                 .frame(height: 24)
             Spacer().frame(height: 8)
-            TextInputField(text: $emailText, placeholder: "E-mail")
+            TextInputField(text: $emailText, placeholder: "Email")
                 .foregroundStyle(DripColor.mainText)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled(true)
                 .keyboardType(.emailAddress)
             Spacer()
             ActionButton(title: "Sign in With Web3Auth") {
-                viewModel.signIn(with: emailText)
+//                viewModel.signIn(with: emailText)
+                // to do: push SetProfile Screen
+                viewModel.mockSetProfile()
             }
-            Spacer().frame(height: 40)
         }
-        .padding(.init(top: 30, leading: 28, bottom: 0, trailing: 28))
+        .padding(.init(top: 30, leading: 28, bottom: 40, trailing: 28))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(DripColor.backgroundGrey.ignoresSafeArea())
         .onChange(of: viewModel.isSignedIn) {
             guard viewModel.isSignedIn else { return }
             onSignIn?()
+        }
+        .navigationDestination(isPresented: $viewModel.needToSetProfile) {
+            let setProfileViewModel = SetProfileViewModel()
+            SetProfileScreen(viewModel: setProfileViewModel)
         }
     }
 }

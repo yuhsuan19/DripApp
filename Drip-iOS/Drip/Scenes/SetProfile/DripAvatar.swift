@@ -25,7 +25,7 @@ struct DripAvatar: View {
         .frame(width: size, height: size)
         .clipShape(Circle())
         .overlay(
-            Circle().stroke(DripColor.lightSub, lineWidth: 1.5)
+            Circle().stroke(DripColor.main, lineWidth: 4)
         )
     }
 }
@@ -41,5 +41,5 @@ struct AvatarLayer: View {
 }
 
 #Preview {
-    DripAvatar(bg: 1, bd: 1, hd: 7, gls: 4, acc: 1, size: 250)
+    DripAvatar(bg: 1, bd: 1, hd: 7, gls: 4, acc: 1, size: 200)
 }

@@ -14,26 +14,27 @@ struct TextInputField: View {
 
     var body: some View {
         ZStack(alignment: .leading) {
-            TextField(placeholder, text: $text)
-                .padding(.init(10 ))
-                .background(isFocused ? DripColor.primary500Primary.opacity(0.03) : .white)
-                .foregroundStyle(.black)
-                .cornerRadius(8)
-                .font(.system(size: 14))
-                .overlay(
-                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(isFocused ? DripColor.primary500Primary :
-                            Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255), lineWidth: 1)
-                 )
-                .focused($isFocused)
-
             if text.isEmpty {
                 Text(placeholder)
+                    .background(.clear)
                     .foregroundColor(DripColor.primary500Disabled)
                     .font(.system(size: 14))
                     .padding(.leading, 10)
             }
+            TextField(placeholder, text: $text)
+                .background(.clear)
+                .padding(.init(10 ))
+                .foregroundStyle(.black)
+                .font(.system(size: 14))
+                .focused($isFocused)
         }
+        .background(isFocused ? DripColor.primary500Primary.opacity(0.03) : .white)
+        .cornerRadius(8)
+        .overlay(
+             RoundedRectangle(cornerRadius: 8)
+                .stroke(isFocused ? DripColor.primary500Primary :
+                    Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255), lineWidth: 1)
+         )
     }
 }
 
