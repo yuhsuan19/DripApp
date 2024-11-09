@@ -34,4 +34,18 @@ final class DripProfileContract {
             return false
         }
     }
+
+    func getProfile() async -> Result<DripProfile, Error> {
+        do {
+            let response = try await GetProfile(
+                contract: EthereumAddress(stringLiteral: DripContracts.profile),
+                ownerAddr: rpcService.rawAddress
+            ).call(withClient: rpcService.client, responseType: GetProfileResponse.self)
+            let profile = response.profile
+            return .success(profile)
+        } catch {
+            print("Fail to get profile: \(error)")
+            return .failure(error)
+        }
+    }
 }

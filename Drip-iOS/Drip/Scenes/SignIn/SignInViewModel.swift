@@ -49,13 +49,19 @@ extension SignInViewModel {
                     rpcService: rpcService,
                     contractAddress: DripContracts.profile
                 )
-                DispatchQueue.main.async {
-                    self.needToSetProfile = true
+                Task {
+                    let result = await profileContract.getProfile()
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        switch result {
+                        case let .success(profile):
+                            print("Get user profile: \(profile)")
+                            self.isSignedIn = true
+                        case .failure:
+                            self.needToSetProfile = true
+                        }
+                    }
                 }
-
-//                DispatchQueue.main.async {
-////                    self.isSignedIn = true
-//                }
             }
             .store(in: &cancellables)
     }

@@ -48,8 +48,7 @@ struct SignInScreen: View {
         .background(DripColor.backgroundGrey.ignoresSafeArea())
         .onChange(of: viewModel.isSignedIn) {
             guard viewModel.isSignedIn else { return }
-            // to do init rpc service
-//            onSignIn?()
+            onSignIn?()
         }
         .navigationDestination(isPresented: $viewModel.needToSetProfile) {
             if let rpcService = viewModel.rpcService {

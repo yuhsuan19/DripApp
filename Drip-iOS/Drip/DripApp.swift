@@ -50,7 +50,23 @@ extension DripApp {
     private func configLaunchScreen() -> LaunchScreen {
         let viewModel = LaunchViewModel(web3AuthService: web3AuthService)
         let launchScreen = LaunchScreen(viewModel: viewModel) {
-            userSessionState = (web3AuthService.user == nil) ? .guest : .guest
+            if let user = web3AuthService.user {
+                let rpcService = RPCService(user: user, rpcURL: BlockchainEnv.rpcURL, chainId: BlockchainEnv.chainId)
+                let profileContract = DripProfileContract(rpcService: rpcService!, contractAddress: DripContracts.profile)
+                Task {
+                    let result = await profileContract.getProfile()
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success:
+                            userSessionState = .active
+                        case .failure:
+                            userSessionState = .guest
+                        }
+                    }
+                }
+            } else {
+                userSessionState = .guest
+            }
         }
         return launchScreen
     }

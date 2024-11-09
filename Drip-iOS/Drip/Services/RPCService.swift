@@ -16,7 +16,7 @@ final class RPCService {
     var rawAddress: EthereumAddress { account.address }
     var accountAddress: String { rawAddress.asString() }
 
-    private let client: EthereumClientProtocol
+    let client: EthereumClientProtocol
     private let user: EthereumSingleKeyStorageProtocol?
 
     private let rpcURL: String
