@@ -13,6 +13,23 @@ struct ChallengePoolScreen: View {
     let colors = Color.generateRandomColors(count: 10)
 
     var body: some View {
+        HStack(alignment: .center) {
+            Image(.naviBarLogo)
+                .resizable()
+                .frame(width: 80, height: 32)
+            Spacer()
+            Button(action: {
+                isPresentingProfileScreen = true
+            }) {
+                ProfileChip()
+            }
+        }
+        .padding(.horizontal, 16)
+        .frame(height: 56)
+        .frame(maxWidth: .infinity)
+        .background(.black)
+        .padding(.bottom, 0)
+
         VStack(spacing: 10) {
             HStack {
                 Spacer()
@@ -65,7 +82,7 @@ struct ChallengePoolScreen: View {
             ActionButton(title: "Create New Challenge")
             Spacer().frame(height: 10)
         }
-        .padding(.init(top: 16, leading: 24, bottom: 0, trailing: 24))
+        .padding(.init(top: 0, leading: 24, bottom: 0, trailing: 24))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(DripColor.backgroundGrey.ignoresSafeArea())
         .sheet(isPresented: $isPresentingProfileScreen) {

@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct SetProfileScreen: View {
+    
+    var onSignIn: (() -> Void)?
 
     @StateObject private var viewModel: SetProfileViewModel
     @State private var username: String = ""
 
-    init(viewModel: SetProfileViewModel) {
+    init(viewModel: SetProfileViewModel, onSignIn: (() -> Void)? = nil
+    ) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.onSignIn = onSignIn
     }
 
     var body: some View {
@@ -53,16 +57,16 @@ struct SetProfileScreen: View {
             }
             Spacer()
             ActionButton(title: "Done") {
-                print("Done")
+                viewModel.setProfile(userHandle: username)
             }
         }
         .padding(.init(top: 24, leading: 24, bottom: 40, trailing: 24))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(DripColor.backgroundGrey.ignoresSafeArea())
         .navigationBarBackButtonHidden()
+        .onChange(of: viewModel.isProfileCreated) {
+            guard viewModel.isProfileCreated else { return }
+            onSignIn?()
+        }
     }
-}
-
-#Preview {
-    SetProfileScreen(viewModel: SetProfileViewModel())
 }

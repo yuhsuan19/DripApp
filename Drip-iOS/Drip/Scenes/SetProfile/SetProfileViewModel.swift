@@ -16,11 +16,22 @@ private enum Constants {
 }
 
 final class SetProfileViewModel: ObservableObject {
+
+    @Published var isProfileCreated: Bool = false
+
     @Published var avatarBg = Int.random(in: Constants.avatarBackgrounds)
     @Published var avatarBody = Int.random(in: Constants.avatarBodies)
     @Published var avatarHead = Int.random(in: Constants.avatarHeads)
     @Published var avatarGlasses = Int.random(in: Constants.avatarGlasses)
     @Published var avatarAccessory = Int.random(in: Constants.avatarAccessories)
+
+    let rpcService: RPCService
+    let profileContract: DripProfileContract
+
+    init(rpcService: RPCService) {
+        self.rpcService = rpcService
+        self.profileContract = DripProfileContract(rpcService: rpcService, contractAddress: DripContracts.profile)
+    }
 
     func randomlyGenerateAvatar() {
         avatarBg = Int.random(in: Constants.avatarBackgrounds)
@@ -28,5 +39,21 @@ final class SetProfileViewModel: ObservableObject {
         avatarHead = Int.random(in: Constants.avatarHeads)
         avatarGlasses = Int.random(in: Constants.avatarGlasses)
         avatarAccessory = Int.random(in: Constants.avatarAccessories)
+    }
+
+    func setProfile(userHandle: String) {
+        guard !userHandle.isEmpty else { return }
+        Task {
+            let isSuccessful = await profileContract.createProfile(
+                userHandle: userHandle,
+                avatarComponents: [avatarBg, avatarBody, avatarHead, avatarGlasses, avatarAccessory]
+            )
+            if isSuccessful {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    self.isProfileCreated = true
+                }
+            }
+        }
     }
 }

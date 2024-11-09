@@ -50,7 +50,7 @@ extension DripApp {
     private func configLaunchScreen() -> LaunchScreen {
         let viewModel = LaunchViewModel(web3AuthService: web3AuthService)
         let launchScreen = LaunchScreen(viewModel: viewModel) {
-            userSessionState = (web3AuthService.user == nil) ? .guest : .active
+            userSessionState = (web3AuthService.user == nil) ? .guest : .guest
         }
         return launchScreen
     }

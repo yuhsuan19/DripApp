@@ -13,14 +13,14 @@
 		3433B6702CD22FD3002FCA1E /* UserSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B66F2CD22FD3002FCA1E /* UserSessionState.swift */; };
 		3433B6732CD38FB9002FCA1E /* ChallengePoolScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6722CD38FB9002FCA1E /* ChallengePoolScreen.swift */; };
 		3433B6752CD3B139002FCA1E /* ProfileChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6742CD3B139002FCA1E /* ProfileChip.swift */; };
-		3433B6782CD3B19D002FCA1E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6772CD3B19D002FCA1E /* StringExtension.swift */; };
+		3433B6782CD3B19D002FCA1E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6772CD3B19D002FCA1E /* String+Extension.swift */; };
 		3433B67A2CD3B460002FCA1E /* CircleAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6792CD3B460002FCA1E /* CircleAvatar.swift */; };
 		3433B67C2CD3C2DA002FCA1E /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B67B2CD3C2DA002FCA1E /* ProfileScreen.swift */; };
 		3433B67E2CD3C8FF002FCA1E /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B67D2CD3C8FF002FCA1E /* ProfileRow.swift */; };
 		3433B6802CD61B0F002FCA1E /* PoolInfoChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B67F2CD61B0F002FCA1E /* PoolInfoChip.swift */; };
 		3433B6832CD63296002FCA1E /* ChallengeDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6822CD63296002FCA1E /* ChallengeDetailScreen.swift */; };
 		3433B6852CD6657D002FCA1E /* TopToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6842CD6657D002FCA1E /* TopToolBar.swift */; };
-		3433B6872CD66DC3002FCA1E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6862CD66DC3002FCA1E /* ColorExtension.swift */; };
+		3433B6872CD66DC3002FCA1E /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6862CD66DC3002FCA1E /* Color+Extension.swift */; };
 		3433B68A2CD67B5C002FCA1E /* QuestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6892CD67B5C002FCA1E /* QuestScreen.swift */; };
 		3433B68C2CD67B66002FCA1E /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B68B2CD67B66002FCA1E /* QuestView.swift */; };
 		3433B68E2CD8B470002FCA1E /* StrokeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B68D2CD8B470002FCA1E /* StrokeButton.swift */; };
@@ -31,6 +31,14 @@
 		349025682CDF1AF8004ECB8F /* LondrinaSolid-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 349025652CDF1AEB004ECB8F /* LondrinaSolid-Light.ttf */; };
 		349025692CDF1AFA004ECB8F /* LondrinaSolid-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 349025642CDF1AEB004ECB8F /* LondrinaSolid-Regular.ttf */; };
 		3490256A2CDF1AFC004ECB8F /* LondrinaSolid-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 349025662CDF1AEB004ECB8F /* LondrinaSolid-Thin.ttf */; };
+		3490256C2CDF47A8004ECB8F /* RPCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490256B2CDF47A8004ECB8F /* RPCService.swift */; };
+		3490256E2CDF4874004ECB8F /* Web3Auth+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490256D2CDF4874004ECB8F /* Web3Auth+Extension.swift */; };
+		349025712CDF50AE004ECB8F /* GetProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349025702CDF50AE004ECB8F /* GetProfile.swift */; };
+		349025732CDF52BA004ECB8F /* DripProfileContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349025722CDF52BA004ECB8F /* DripProfileContract.swift */; };
+		349025752CDF5368004ECB8F /* DripProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349025742CDF5368004ECB8F /* DripProfile.swift */; };
+		349025772CDF5454004ECB8F /* CreateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349025762CDF5454004ECB8F /* CreateProfile.swift */; };
+		349025792CDF5A36004ECB8F /* BlockchainEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349025782CDF5A36004ECB8F /* BlockchainEnv.swift */; };
+		3490257B2CDF5B32004ECB8F /* DripContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490257A2CDF5B32004ECB8F /* DripContracts.swift */; };
 		3494BB802CC511A400490373 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 3494BB7F2CC511A400490373 /* web3.swift */; };
 		3494BB842CCE148A00490373 /* DripColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB832CCE148A00490373 /* DripColor.swift */; };
 		3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB872CCE196C00490373 /* SignInViewModel.swift */; };
@@ -72,14 +80,14 @@
 		3433B66F2CD22FD3002FCA1E /* UserSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionState.swift; sourceTree = "<group>"; };
 		3433B6722CD38FB9002FCA1E /* ChallengePoolScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePoolScreen.swift; sourceTree = "<group>"; };
 		3433B6742CD3B139002FCA1E /* ProfileChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChip.swift; sourceTree = "<group>"; };
-		3433B6772CD3B19D002FCA1E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3433B6772CD3B19D002FCA1E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3433B6792CD3B460002FCA1E /* CircleAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAvatar.swift; sourceTree = "<group>"; };
 		3433B67B2CD3C2DA002FCA1E /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3433B67D2CD3C8FF002FCA1E /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
 		3433B67F2CD61B0F002FCA1E /* PoolInfoChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolInfoChip.swift; sourceTree = "<group>"; };
 		3433B6822CD63296002FCA1E /* ChallengeDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailScreen.swift; sourceTree = "<group>"; };
 		3433B6842CD6657D002FCA1E /* TopToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopToolBar.swift; sourceTree = "<group>"; };
-		3433B6862CD66DC3002FCA1E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		3433B6862CD66DC3002FCA1E /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		3433B6892CD67B5C002FCA1E /* QuestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestScreen.swift; sourceTree = "<group>"; };
 		3433B68B2CD67B66002FCA1E /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
 		3433B68D2CD8B470002FCA1E /* StrokeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeButton.swift; sourceTree = "<group>"; };
@@ -91,6 +99,14 @@
 		349025642CDF1AEB004ECB8F /* LondrinaSolid-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LondrinaSolid-Regular.ttf"; sourceTree = "<group>"; };
 		349025652CDF1AEB004ECB8F /* LondrinaSolid-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LondrinaSolid-Light.ttf"; sourceTree = "<group>"; };
 		349025662CDF1AEB004ECB8F /* LondrinaSolid-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LondrinaSolid-Thin.ttf"; sourceTree = "<group>"; };
+		3490256B2CDF47A8004ECB8F /* RPCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCService.swift; sourceTree = "<group>"; };
+		3490256D2CDF4874004ECB8F /* Web3Auth+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Web3Auth+Extension.swift"; sourceTree = "<group>"; };
+		349025702CDF50AE004ECB8F /* GetProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfile.swift; sourceTree = "<group>"; };
+		349025722CDF52BA004ECB8F /* DripProfileContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripProfileContract.swift; sourceTree = "<group>"; };
+		349025742CDF5368004ECB8F /* DripProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripProfile.swift; sourceTree = "<group>"; };
+		349025762CDF5454004ECB8F /* CreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile.swift; sourceTree = "<group>"; };
+		349025782CDF5A36004ECB8F /* BlockchainEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainEnv.swift; sourceTree = "<group>"; };
+		3490257A2CDF5B32004ECB8F /* DripContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripContracts.swift; sourceTree = "<group>"; };
 		3494BB832CCE148A00490373 /* DripColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripColor.swift; sourceTree = "<group>"; };
 		3494BB872CCE196C00490373 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		3494BB892CCE198400490373 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
@@ -178,8 +194,9 @@
 		3433B6762CD3B180002FCA1E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3433B6772CD3B19D002FCA1E /* StringExtension.swift */,
-				3433B6862CD66DC3002FCA1E /* ColorExtension.swift */,
+				3433B6772CD3B19D002FCA1E /* String+Extension.swift */,
+				3433B6862CD66DC3002FCA1E /* Color+Extension.swift */,
+				3490256D2CDF4874004ECB8F /* Web3Auth+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,10 +239,23 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		3490256F2CDF5091004ECB8F /* ProfileContract */ = {
+			isa = PBXGroup;
+			children = (
+				349025702CDF50AE004ECB8F /* GetProfile.swift */,
+				349025722CDF52BA004ECB8F /* DripProfileContract.swift */,
+				349025742CDF5368004ECB8F /* DripProfile.swift */,
+				349025762CDF5454004ECB8F /* CreateProfile.swift */,
+			);
+			path = ProfileContract;
+			sourceTree = "<group>";
+		};
 		3494BB812CCE146400490373 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				3494BB832CCE148A00490373 /* DripColor.swift */,
+				349025782CDF5A36004ECB8F /* BlockchainEnv.swift */,
+				3490257A2CDF5B32004ECB8F /* DripContracts.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -307,7 +337,9 @@
 		34AC126B2CC39E1D001044D3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3490256F2CDF5091004ECB8F /* ProfileContract */,
 				3433B66C2CD22797002FCA1E /* Web3AuthService.swift */,
+				3490256B2CDF47A8004ECB8F /* RPCService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -477,18 +509,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3490256E2CDF4874004ECB8F /* Web3Auth+Extension.swift in Sources */,
 				3494BB842CCE148A00490373 /* DripColor.swift in Sources */,
 				3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */,
 				3433B67E2CD3C8FF002FCA1E /* ProfileRow.swift in Sources */,
-				3433B6782CD3B19D002FCA1E /* StringExtension.swift in Sources */,
+				3433B6782CD3B19D002FCA1E /* String+Extension.swift in Sources */,
 				3433B6932CD91890002FCA1E /* DripAvatar.swift in Sources */,
 				3433B6952CD91E23002FCA1E /* SetProfileViewModel.swift in Sources */,
+				3490256C2CDF47A8004ECB8F /* RPCService.swift in Sources */,
 				3433B66D2CD22797002FCA1E /* Web3AuthService.swift in Sources */,
 				3433B6802CD61B0F002FCA1E /* PoolInfoChip.swift in Sources */,
 				34AC126E2CC3A058001044D3 /* LaunchViewModel.swift in Sources */,
+				349025752CDF5368004ECB8F /* DripProfile.swift in Sources */,
 				34AC12372CC39CB6001044D3 /* ContentView.swift in Sources */,
 				3433B6832CD63296002FCA1E /* ChallengeDetailScreen.swift in Sources */,
-				3433B6872CD66DC3002FCA1E /* ColorExtension.swift in Sources */,
+				3490257B2CDF5B32004ECB8F /* DripContracts.swift in Sources */,
+				3433B6872CD66DC3002FCA1E /* Color+Extension.swift in Sources */,
+				349025792CDF5A36004ECB8F /* BlockchainEnv.swift in Sources */,
 				3433B6912CD9168F002FCA1E /* SetProfileScreen.swift in Sources */,
 				3433B67C2CD3C2DA002FCA1E /* ProfileScreen.swift in Sources */,
 				3433B6632CD0D48D002FCA1E /* TextInputField.swift in Sources */,
@@ -505,6 +542,9 @@
 				3433B6652CD0DA2E002FCA1E /* ActionButton.swift in Sources */,
 				3433B6852CD6657D002FCA1E /* TopToolBar.swift in Sources */,
 				3433B68C2CD67B66002FCA1E /* QuestView.swift in Sources */,
+				349025712CDF50AE004ECB8F /* GetProfile.swift in Sources */,
+				349025732CDF52BA004ECB8F /* DripProfileContract.swift in Sources */,
+				349025772CDF5454004ECB8F /* CreateProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

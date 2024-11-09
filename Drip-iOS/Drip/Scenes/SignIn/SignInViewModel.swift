@@ -12,6 +12,8 @@ final class SignInViewModel: ObservableObject {
     @Published var isSignedIn: Bool = false
     @Published var needToSetProfile: Bool = false
 
+    var rpcService: RPCService?
+
     private let web3AuthService: Web3AuthService
     private var cancellables = Set<AnyCancellable>()
 
@@ -35,10 +37,25 @@ extension SignInViewModel {
     private func setUpBinding() {
         web3AuthService.logInSuccessSubject
             .sink { [weak self] in
-                guard let self else { return }
-                DispatchQueue.main.async {
-                    self.isSignedIn = true
+                guard let self,
+                      let user = self.web3AuthService.user,
+                      let rpcService = RPCService(user: user, rpcURL: BlockchainEnv.rpcURL, chainId: BlockchainEnv.chainId) else {
+                    print("Fail to init RPC service")
+                    return
                 }
+                self.rpcService = rpcService
+
+                let profileContract = DripProfileContract(
+                    rpcService: rpcService,
+                    contractAddress: DripContracts.profile
+                )
+                DispatchQueue.main.async {
+                    self.needToSetProfile = true
+                }
+
+//                DispatchQueue.main.async {
+////                    self.isSignedIn = true
+//                }
             }
             .store(in: &cancellables)
     }

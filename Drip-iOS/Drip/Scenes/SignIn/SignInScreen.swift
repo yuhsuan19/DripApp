@@ -40,9 +40,7 @@ struct SignInScreen: View {
                 .keyboardType(.emailAddress)
             Spacer()
             ActionButton(title: "Sign in With Web3Auth") {
-//                viewModel.signIn(with: emailText)
-                // to do: push SetProfile Screen
-                viewModel.mockSetProfile()
+                viewModel.signIn(with: emailText)
             }
         }
         .padding(.init(top: 30, leading: 28, bottom: 40, trailing: 28))
@@ -50,11 +48,18 @@ struct SignInScreen: View {
         .background(DripColor.backgroundGrey.ignoresSafeArea())
         .onChange(of: viewModel.isSignedIn) {
             guard viewModel.isSignedIn else { return }
-            onSignIn?()
+            // to do init rpc service
+//            onSignIn?()
         }
         .navigationDestination(isPresented: $viewModel.needToSetProfile) {
-            let setProfileViewModel = SetProfileViewModel()
-            SetProfileScreen(viewModel: setProfileViewModel)
+            if let rpcService = viewModel.rpcService {
+                let setProfileViewModel = SetProfileViewModel(rpcService: rpcService)
+                SetProfileScreen(viewModel: setProfileViewModel) {
+                    onSignIn?()
+                }
+            } else {
+                EmptyView()
+            }
         }
     }
 }
