@@ -28,11 +28,13 @@ struct SetProfileScreen: View {
                 .frame(height: 32)
             VStack(spacing: 12) {
                 DripAvatar(
-                    bg: viewModel.avatarBg,
-                    bd: viewModel.avatarBody,
-                    hd: viewModel.avatarHead,
-                    gls: viewModel.avatarGlasses,
-                    acc: viewModel.avatarAccessory,
+                    components: [
+                        viewModel.avatarBg, 
+                        viewModel.avatarBody,
+                        viewModel.avatarHead,
+                        viewModel.avatarGlasses,
+                        viewModel.avatarAccessory
+                    ],
                     size: 200
                 )
                 Button(action: {

@@ -30,7 +30,7 @@ struct GetProfile: ABIFunction {
 }
 
 struct GetProfileResponse: ABIResponse {
-    static var types: [web3.ABIType.Type] = [BigUInt.self, EthereumAddress.self, String.self, ABIArray<UInt32>.self]
+    static var types: [web3.ABIType.Type] = [DripProfile.self]
 
     let profile: DripProfile
 

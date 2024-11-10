@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ProfileScreen: View {
+    @StateObject private var viewModel: ProfileViewModel
+
+    init(viewModel: ProfileViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
         VStack(spacing: 24) {
             Text("Profile")
@@ -15,17 +21,20 @@ struct ProfileScreen: View {
                 .frame(height: 32)
                 .foregroundStyle(.black)
 
-            DripAvatar(bg: 1, bd: 1, hd: 1, gls: 1, acc: 1, size: 100)
-            Text("User handle")
+            DripAvatar(components: viewModel.avatarComponents, size: 100)
+
+            Text(viewModel.userHandle ?? "Loading...")
                 .font(.custom("LondrinaSolid-Regular", size: 36))
                 .frame(height: 44)
                 .foregroundStyle(.black)
 
             VStack(alignment: .leading, spacing: 0) {
-                ProfileRow(iconName: "wallet-addr", text: "0xb07dBaa1103e88f41BC906744b294716ed3882c4") {
-                    UIPasteboard.general.string = "0xb07dBaa1103e88f41BC906744b294716ed3882c4"
+                ProfileRow(iconName: "wallet-addr", text: viewModel.accountAddress) {
+                    UIPasteboard.general.string = viewModel.accountAddress
                 }
-                ProfileRow(iconName: "email", text: "shane.chi@portto.com")
+                if let email = viewModel.email {
+                    ProfileRow(iconName: "email", text: email)
+                }
             }
             .frame(maxWidth: .infinity)
             .background(.white)

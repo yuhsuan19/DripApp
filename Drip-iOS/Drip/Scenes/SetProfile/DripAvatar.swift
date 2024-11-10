@@ -8,25 +8,36 @@
 import SwiftUI
 
 struct DripAvatar: View {
-    let bg: Int
-    let bd: Int
-    let hd: Int
-    let gls: Int
-    let acc: Int
+    let components: [Int]?
     let size: CGFloat
 
     var body: some View {
-        ZStack {
-            AvatarLayer(imageName: "bg-\(bg)")
-            AvatarLayer(imageName: "body-\(bd)")
-            AvatarLayer(imageName: "head-\(hd)")
-            AvatarLayer(imageName: "glasses-\(gls)")
+        if let components, components.count == 5 {
+            ZStack {
+                AvatarLayer(imageName: "bg-\(components[0])")
+                AvatarLayer(imageName: "body-\(components[1])")
+                AvatarLayer(imageName: "head-\(components[2])")
+                AvatarLayer(imageName: "glasses-\(components[3])")
+                AvatarLayer(imageName: "accessory-\(components[4])")
+            }
+            .frame(width: size, height: size)
+            .clipShape(Circle())
+            .overlay(
+                Circle().stroke(DripColor.main, lineWidth: 4)
+            )
+        } else {
+            ZStack {
+                Color.init(red: 213 / 255, green: 215 / 255, blue: 225 / 255)
+                Image(.avatarPlaceholder)
+                    .resizable()
+                    .frame(width: size * 0.85, height: size * 0.85)
+            }
+            .frame(width: size, height: size)
+            .clipShape(Circle())
+            .overlay(
+                Circle().stroke(DripColor.main, lineWidth: 4)
+            )
         }
-        .frame(width: size, height: size)
-        .clipShape(Circle())
-        .overlay(
-            Circle().stroke(DripColor.main, lineWidth: 4)
-        )
     }
 }
 
@@ -41,5 +52,5 @@ struct AvatarLayer: View {
 }
 
 #Preview {
-    DripAvatar(bg: 1, bd: 1, hd: 7, gls: 4, acc: 1, size: 200)
+    DripAvatar(components: nil, size: 200)
 }

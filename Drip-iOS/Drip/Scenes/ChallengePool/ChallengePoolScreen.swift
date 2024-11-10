@@ -86,7 +86,8 @@ struct ChallengePoolScreen: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(DripColor.backgroundGrey.ignoresSafeArea())
             .sheet(isPresented: $isPresentingProfileScreen) {
-                ProfileScreen()
+                let viewModel = ProfileViewModel(rpcService: viewModel.rpcService)
+                ProfileScreen(viewModel: viewModel)
             }
         }
     }

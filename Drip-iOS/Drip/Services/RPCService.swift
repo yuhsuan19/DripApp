@@ -11,13 +11,13 @@ import Combine
 import BigInt
 
 final class RPCService {
-
+    
+    let user: EthereumSingleKeyStorageProtocol?
     let account: EthereumAccount
     var rawAddress: EthereumAddress { account.address }
     var accountAddress: String { rawAddress.asString() }
 
     let client: EthereumClientProtocol
-    private let user: EthereumSingleKeyStorageProtocol?
 
     private let rpcURL: String
     private let chainId: String
