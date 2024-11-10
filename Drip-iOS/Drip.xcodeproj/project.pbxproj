@@ -39,6 +39,7 @@
 		349025772CDF5454004ECB8F /* CreateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349025762CDF5454004ECB8F /* CreateProfile.swift */; };
 		349025792CDF5A36004ECB8F /* BlockchainEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349025782CDF5A36004ECB8F /* BlockchainEnv.swift */; };
 		3490257B2CDF5B32004ECB8F /* DripContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490257A2CDF5B32004ECB8F /* DripContracts.swift */; };
+		3490257D2CE07877004ECB8F /* ChallengePoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490257C2CE07877004ECB8F /* ChallengePoolViewModel.swift */; };
 		3494BB802CC511A400490373 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 3494BB7F2CC511A400490373 /* web3.swift */; };
 		3494BB842CCE148A00490373 /* DripColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB832CCE148A00490373 /* DripColor.swift */; };
 		3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB872CCE196C00490373 /* SignInViewModel.swift */; };
@@ -107,6 +108,7 @@
 		349025762CDF5454004ECB8F /* CreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile.swift; sourceTree = "<group>"; };
 		349025782CDF5A36004ECB8F /* BlockchainEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainEnv.swift; sourceTree = "<group>"; };
 		3490257A2CDF5B32004ECB8F /* DripContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripContracts.swift; sourceTree = "<group>"; };
+		3490257C2CE07877004ECB8F /* ChallengePoolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePoolViewModel.swift; sourceTree = "<group>"; };
 		3494BB832CCE148A00490373 /* DripColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripColor.swift; sourceTree = "<group>"; };
 		3494BB872CCE196C00490373 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		3494BB892CCE198400490373 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				3433B6722CD38FB9002FCA1E /* ChallengePoolScreen.swift */,
+				3490257C2CE07877004ECB8F /* ChallengePoolViewModel.swift */,
 				3433B6742CD3B139002FCA1E /* ProfileChip.swift */,
 				3433B67F2CD61B0F002FCA1E /* PoolInfoChip.swift */,
 			);
@@ -532,6 +535,7 @@
 				34AC12712CC3A099001044D3 /* LaunchScreen.swift in Sources */,
 				3494BB8A2CCE198400490373 /* SignInScreen.swift in Sources */,
 				34AC12392CC39CB6001044D3 /* Item.swift in Sources */,
+				3490257D2CE07877004ECB8F /* ChallengePoolViewModel.swift in Sources */,
 				3433B6732CD38FB9002FCA1E /* ChallengePoolScreen.swift in Sources */,
 				3433B68E2CD8B470002FCA1E /* StrokeButton.swift in Sources */,
 				3433B68A2CD67B5C002FCA1E /* QuestScreen.swift in Sources */,

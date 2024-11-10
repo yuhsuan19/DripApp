@@ -19,18 +19,20 @@ struct ProfileRow: View {
     }
 
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: 4) {
             Image(iconName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 20, height: 20)
+                .frame(width: 16, height: 16)
             Text(text)
-                .font(.system(size: 12))
-                .foregroundStyle(DripColor.mainText)
+                .font(.system(size: 14))
+                .foregroundStyle(DripColor.primary500Disabled)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(height: 20)
         }
+        .padding(.all, 12)
         .onTapGesture {
             onTap?()
         }

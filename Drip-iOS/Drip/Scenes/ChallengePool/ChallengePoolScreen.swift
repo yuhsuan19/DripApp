@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct ChallengePoolScreen: View {
+    @StateObject private var viewModel: ChallengePoolViewModel
     @State private var isPresentingProfileScreen = false
     let columns = [GridItem(spacing: 16), GridItem()]
     let colors = Color.generateRandomColors(count: 10)
+
+    init(viewModel: ChallengePoolViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -85,8 +90,4 @@ struct ChallengePoolScreen: View {
             }
         }
     }
-}
-
-#Preview {
-    ChallengePoolScreen()
 }

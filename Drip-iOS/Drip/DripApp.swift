@@ -25,7 +25,7 @@ struct DripApp: App {
                 }
             case .active:
                 NavigationStack {
-                    ChallengePoolScreen()
+                    configChallengePoolScreen()
                 }
             }
         }
@@ -77,5 +77,15 @@ extension DripApp {
             userSessionState = .active
         }
         return sigInScreen
+    }
+
+    private func configChallengePoolScreen() -> ChallengePoolScreen {
+        guard let user = web3AuthService.user,
+              let rpcService = RPCService(user: user, rpcURL: BlockchainEnv.rpcURL, chainId: BlockchainEnv.chainId) else {
+            fatalError("Fail to initialize RPCService")
+        }
+        let viewModel = ChallengePoolViewModel(rpcService: rpcService)
+        let challengePoolScreen = ChallengePoolScreen(viewModel: viewModel)
+        return challengePoolScreen
     }
 }
