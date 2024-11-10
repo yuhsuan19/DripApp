@@ -14,9 +14,9 @@ final class DripERC20Contract {
     private let contractAddress: EthereumAddress
     private lazy var erc20: ERC20 = ERC20(client: rpcService.client)
 
-    init(rpcService: RPCService, contractAddress: EthereumAddress) {
+    init(rpcService: RPCService, contractAddress: String) {
         self.rpcService = rpcService
-        self.contractAddress = contractAddress
+        self.contractAddress = EthereumAddress(contractAddress)
     }
 
     func approveTransfer(
@@ -38,5 +38,11 @@ final class DripERC20Contract {
             print("Fail to create profile: \(error)")
             return false
         }
+    }
+
+    func getBalance() async -> String? {
+        let bal = try? await erc20.balanceOf(tokenContract: contractAddress, address: rpcService.rawAddress)
+        guard let bal else { return nil }
+        return bal.description.convertBigIntToDecimalFormat(decimals: 18, decimalPlaces: 6)
     }
 }

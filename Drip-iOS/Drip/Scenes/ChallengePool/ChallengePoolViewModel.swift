@@ -11,10 +11,7 @@ import BigInt
 
 final class ChallengePoolViewModel: ObservableObject {
     let rpcService: RPCService
-    private lazy var dripERC20Contract = DripERC20Contract(
-        rpcService: rpcService,
-        contractAddress: EthereumAddress(DripContracts.dripERC20Token)
-    )
+    private lazy var dripERC20Contract = DripERC20Contract(rpcService: rpcService, contractAddress: DripContracts.dripERC20Token)
     private lazy var profileContract = DripProfileContract(rpcService: rpcService, contractAddress: DripContracts.profile)
 
     init(rpcService: RPCService) {

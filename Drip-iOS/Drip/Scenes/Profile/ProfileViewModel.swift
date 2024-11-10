@@ -19,18 +19,25 @@ final class ProfileViewModel: ObservableObject {
     @Published var email: String
 
     @Published var nativeTokenBalance: String = "- \(BlockchainEnv.nativeTokenSymbol)"
+    @Published var dripERC20TokenBalance: String = "- \(DripContracts.dripERC20TokenSymbol)"
 
     private lazy var profileContract = DripProfileContract(
         rpcService: rpcService,
         contractAddress: DripContracts.profile
+    )
+    private lazy var dripERC20Contract = DripERC20Contract(
+        rpcService: rpcService,
+        contractAddress: DripContracts.dripERC20Token
     )
 
     init(rpcService: RPCService) {
         self.rpcService = rpcService
         self.accountAddress = rpcService.accountAddress
         self.email = (rpcService.user as? Web3AuthState)?.userInfo?.email ?? "-"
+
         fetchProfile()
         fetchNativeTokenBalance()
+        fetchDripTokenBalance()
     }
 
     func fetchProfile() {
@@ -57,6 +64,17 @@ final class ProfileViewModel: ObservableObject {
                 guard let self else { return }
                 let displayedBal = bal.description.convertBigIntToDecimalFormat(decimals: 18, decimalPlaces: 6)
                 self.nativeTokenBalance = "\(displayedBal) \(BlockchainEnv.nativeTokenSymbol)"
+            }
+        }
+    }
+
+    func fetchDripTokenBalance() {
+        Task {
+            if let bal = await dripERC20Contract.getBalance() {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    self.dripERC20TokenBalance = "\(bal) \(DripContracts.dripERC20TokenSymbol)"
+                }
             }
         }
     }

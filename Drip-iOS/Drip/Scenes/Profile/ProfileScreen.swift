@@ -46,6 +46,7 @@ struct ProfileScreen: View {
                     .foregroundStyle(.black)
                 VStack(alignment: .leading, spacing: 0) {
                     ProfileRow(iconName: BlockchainEnv.nativeTokenIcon, text: $viewModel.nativeTokenBalance)
+                    ProfileRow(iconName: DripContracts.dripERC20TokenIcon, text: $viewModel.dripERC20TokenBalance)
                 }
                 .frame(maxWidth: .infinity)
                 .background(.white)
