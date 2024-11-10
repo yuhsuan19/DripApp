@@ -23,18 +23,16 @@ struct ProfileScreen: View {
 
             DripAvatar(components: viewModel.avatarComponents, size: 100)
 
-            Text(viewModel.userHandle ?? "Loading...")
+            Text(viewModel.userHandle)
                 .font(.custom("LondrinaSolid-Regular", size: 36))
                 .frame(height: 44)
                 .foregroundStyle(.black)
 
             VStack(alignment: .leading, spacing: 0) {
-                ProfileRow(iconName: "wallet-addr", text: viewModel.accountAddress) {
+                ProfileRow(iconName: "wallet-addr", text: $viewModel.accountAddress) {
                     UIPasteboard.general.string = viewModel.accountAddress
                 }
-                if let email = viewModel.email {
-                    ProfileRow(iconName: "email", text: email)
-                }
+                ProfileRow(iconName: "email", text: $viewModel.email)
             }
             .frame(maxWidth: .infinity)
             .background(.white)
@@ -47,9 +45,7 @@ struct ProfileScreen: View {
                     .frame(height: 28)
                     .foregroundStyle(.black)
                 VStack(alignment: .leading, spacing: 0) {
-                    ProfileRow(iconName: "token-eth", text: "9.3413 ETH")
-                    ProfileRow(iconName: "token-usdc", text: "3662.7843 USDC")
-                    ProfileRow(iconName: "token-usdt", text: "0 USDT")
+                    ProfileRow(iconName: BlockchainEnv.nativeTokenIcon, text: $viewModel.nativeTokenBalance)
                 }
                 .frame(maxWidth: .infinity)
                 .background(.white)

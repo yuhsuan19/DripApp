@@ -23,11 +23,12 @@ final class ChallengePoolViewModel: ObservableObject {
 
     func createChallenge() {
         Task {
-            let isSuccessful = await dripERC20Contract.approveTransfer(amount: BigUInt(100_000) )
-            if isSuccessful {
-                let result = await profileContract.createChallenge()
-                print("Challenge creation result: \(result)")
-            }
+//            await profileContract.getChallenges()
+//            let isSuccessful = await dripERC20Contract.approveTransfer(amount: BigUInt(100_000) )
+//            if isSuccessful {
+//                let result = await profileContract.createChallenge()
+//                print("Challenge creation result: \(result)")
+//            }
         }
     }
 }

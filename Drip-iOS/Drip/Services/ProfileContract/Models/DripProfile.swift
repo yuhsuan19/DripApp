@@ -11,8 +11,8 @@ import BigInt
 
 struct DripProfile: ABITuple {
     static var types: [ABIType.Type] { [
-        BigInt.self, // token id
-        EthereumAddress.self, // owner
+        BigInt.self,
+        EthereumAddress.self,
         String.self,
         ABIArray<UInt32>.self
     ] }

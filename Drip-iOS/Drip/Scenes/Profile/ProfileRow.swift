@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ProfileRow: View {
     @State var iconName: String
-    @State var text: String
+    @Binding var text: String
     var onTap: (() -> Void)?
 
-    init(iconName: String, text: String, onTap: (() -> Void)? = nil) {
+    init(iconName: String, text: Binding<String>, onTap: (() -> Void)? = nil) {
+        self._text = text
         self.iconName = iconName
-        self.text = text
         self.onTap = onTap
     }
 
     var body: some View {
-        HStack(spacing: 4) {
+        HStack(spacing: 5) {
             Image(iconName)
                 .resizable()
                 .scaledToFit()
@@ -40,6 +40,6 @@ struct ProfileRow: View {
 }
 
 #Preview {
-    ProfileRow(iconName: "wallet-addr", text: "0xb07dBaa1103e88f41BC906744b294716ed3882c4")
+    ProfileRow(iconName: "wallet-addr", text: .constant("0xb07dBaa1103e88f41BC906744b294716ed3882c4"))
         .padding()
 }

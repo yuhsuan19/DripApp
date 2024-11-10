@@ -103,4 +103,34 @@ final class RPCService {
             return nil
         }
     }
+
+    func getBalance() async -> BigUInt? {
+        let blockChanged = await checkLatestBlockChanged()
+        guard blockChanged else { return  nil }
+        do {
+            let balance = try await client.eth_getBalance(address: rawAddress, block: .Latest)
+            print("Native token balance: \(balance)")
+            return balance
+        } catch {
+            return nil
+        }
+    }
+
+    private func checkLatestBlockChanged() async -> Bool {
+        return await withCheckedContinuation({ continuation in
+            client.eth_blockNumber { [weak self] result in
+                switch result {
+                case .success(let val):
+                    if self?.latestBlock != val {
+                        self?.latestBlock = val
+                        continuation.resume(returning: true)
+                    } else {
+                        continuation.resume(returning: false)
+                    }
+                case .failure:
+                    continuation.resume(returning: false)
+                }
+            }
+        })
+    }
 }

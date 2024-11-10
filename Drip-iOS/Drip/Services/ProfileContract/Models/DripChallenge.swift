@@ -11,10 +11,17 @@ import BigInt
 
 struct DripChallenge: ABITuple {
     static var types: [ABIType.Type] { [
-        BigInt.self, // token id
-        EthereumAddress.self, // owner
+        BigUInt.self,
+        BigUInt.self,
+        BigUInt.self,
+        BigUInt.self,
+        BigUInt.self,
+        EthereumAddress.self,
+        EthereumAddress.self,
+        UInt16.self,
         String.self,
-        ABIArray<UInt32>.self
+        String.self,
+        ABIArray<BigUInt>.self
     ] }
 
     let rawId: BigUInt
