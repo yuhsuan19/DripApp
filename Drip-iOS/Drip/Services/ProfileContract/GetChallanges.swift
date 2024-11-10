@@ -44,11 +44,7 @@ struct GetChallengesResponse: ABIResponse {
     init?(data: String) throws {
         do {
             let result = try ABIDecoder.decodeData(data, types: [ABIArray<DripChallenge>.self])
-            print(result)
-            try result.forEach {
-                let c: DripChallenge = try $0.decoded()
-                print(c)
-            }
+            challenges = try result[0].decodedTupleArray()
         } catch {
             print("Fail to decode profile data: \(error)")
             return nil

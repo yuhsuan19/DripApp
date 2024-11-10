@@ -21,7 +21,11 @@ struct DripChallenge: ABITuple {
         UInt16.self,
         String.self,
         String.self,
-        ABIArray<BigUInt>.self
+        BigUInt.self,
+        BigUInt.self,
+        BigUInt.self,
+        BigUInt.self,
+        BigUInt.self
     ] }
 
     let rawId: BigUInt
@@ -34,7 +38,7 @@ struct DripChallenge: ABITuple {
     let durationInDays: UInt16
     let title: String
     let desc: String
-    var dailyCompletionTimestamps: [BigUInt]
+    var dailyCompletionTimestamps: [BigUInt] = []
 
     init(
         rawId: BigUInt,
@@ -73,9 +77,9 @@ struct DripChallenge: ABITuple {
         self.durationInDays =  try values[7].decoded()
         self.title =  try values[8].decoded()
         self.desc =  try values[9].decoded()
-        self.dailyCompletionTimestamps = []
+
         for idx in 10..<10+Int(self.durationInDays) {
-            self.dailyCompletionTimestamps.append(contentsOf: try values[idx].decodedArray())
+            self.dailyCompletionTimestamps.append(try values[idx].decoded())
         }
     }
 
@@ -106,4 +110,10 @@ struct DripChallenge: ABITuple {
         desc,
         ABIArray(values: dailyCompletionTimestamps)
     ] }
+}
+
+extension DripChallenge: Identifiable {
+    var id: String {
+        return rawId.description
+    }
 }

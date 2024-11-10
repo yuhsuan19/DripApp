@@ -50,17 +50,17 @@ final class DripProfileContract {
         }
     }
 
-    func getChallenges() async {
+    func getChallenges() async -> [DripChallenge]  {
         do {
             let response = try await GetChallenges(
                 contract:  EthereumAddress(stringLiteral: DripContracts.profile),
                 profileId: BigUInt(1),
                 epochId: BigUInt(0)
             ).call(withClient: rpcService.client, responseType: GetChallengesResponse.self)
-            let challenges = response.challenges
-            print(challenges)
+            return response.challenges
         } catch {
             print("Fail to get profile: \(error)")
+            return []
         }
     }
 
@@ -69,10 +69,10 @@ final class DripProfileContract {
             from: rpcService.rawAddress,
             contract: contractAddress,
             profileId: BigUInt(1),
-            name: "Challenge Name_2",
-            desc: "Challenge Description_2",
+            name: "Challenge Name_3",
+            desc: "Challenge Description_3",
             stakeToken: EthereumAddress(stringLiteral: DripContracts.dripERC20Token),
-            stakeAmount: BigUInt(100_000),
+            stakeAmount: BigUInt(2.23).multiplied(by: BigUInt(10).power(18)),
             duration: 5
         )
         let result = await rpcService.sendTransaction(createChallengeFunction)

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ChallengePoolScreen: View {
     @StateObject private var viewModel: ChallengePoolViewModel
+
     @State private var isPresentingProfileScreen = false
+
     let columns = [GridItem(spacing: 16), GridItem()]
     let colors = Color.generateRandomColors(count: 10)
 
@@ -67,14 +69,14 @@ struct ChallengePoolScreen: View {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 24) {
                         LazyVGrid(columns: columns, spacing: 16, content: {
-                            ForEach(colors, id: \.self) { color in
+                            ForEach(viewModel.challenges) { challenge in
                                 NavigationLink(destination: {
                                     ChallengeDetailScreen()
                                 }) {
                                     VStack(spacing: 0) {
-                                        color.aspectRatio(1, contentMode: .fill)
+                                        DripColor.main.aspectRatio(1, contentMode: .fill)
                                             .padding(.bottom, 10)
-                                        Text("Challenge Name")
+                                        Text(challenge.title)
                                             .font(.system(size: 14, weight: .light))
                                             .foregroundStyle(DripColor.mainText)
                                             .padding(.horizontal, 12)
@@ -91,6 +93,30 @@ struct ChallengePoolScreen: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 16))
                                 }
                             }
+//                            ForEach(colors, id: \.self) { color in
+//                                NavigationLink(destination: {
+//                                    ChallengeDetailScreen()
+//                                }) {
+//                                    VStack(spacing: 0) {
+//                                        color.aspectRatio(1, contentMode: .fill)
+//                                            .padding(.bottom, 10)
+//                                        Text("Challenge Name")
+//                                            .font(.system(size: 14, weight: .light))
+//                                            .foregroundStyle(DripColor.mainText)
+//                                            .padding(.horizontal, 12)
+//                                            .frame(maxWidth: .infinity, alignment: .leading)
+//                                            .padding(.bottom, 2)
+//                                        Text("30 USDC Staked")
+//                                            .font(.system(size: 12, weight: .thin))
+//                                            .foregroundStyle(DripColor.subText)
+//                                            .padding(.horizontal, 12)
+//                                            .frame(maxWidth: .infinity, alignment: .leading)
+//                                    }
+//                                    .padding(.bottom, 10)
+//                                    .background(.white)
+//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+//                                }
+//                            }
                         })
                     }
                 }
@@ -98,9 +124,14 @@ struct ChallengePoolScreen: View {
             .padding(.init(top: 24, leading: 24, bottom: 0, trailing: 24))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(DripColor.backgroundMain.ignoresSafeArea())
-            .sheet(isPresented: $isPresentingProfileScreen) {
+            .sheet(isPresented: $isPresentingProfileScreen, onDismiss: {
+                viewModel.fetchChallenges()
+            }) {
                 let viewModel = ProfileViewModel(rpcService: viewModel.rpcService)
                 ProfileScreen(viewModel: viewModel)
+            }
+            .onAppear {
+                viewModel.fetchChallenges()
             }
         }
     }
