@@ -7,6 +7,7 @@
 
 import Foundation
 import web3
+import BigInt
 
 final class DripProfileContract {
     private let rpcService: RPCService
@@ -46,6 +47,28 @@ final class DripProfileContract {
         } catch {
             print("Fail to get profile: \(error)")
             return .failure(error)
+        }
+    }
+
+    func createChallenge() async -> Bool {
+        let createChallengeFunction = CreateChallenge(
+            from: rpcService.rawAddress,
+            contract: contractAddress,
+            profileId: BigUInt(1),
+            name: "Challenge Name",
+            desc: "Challenge Description",
+            stakeToken: EthereumAddress(stringLiteral: DripContracts.dripERC20Token),
+            stakeAmount: BigUInt(100_000),
+            duration: 5
+        )
+        let result = await rpcService.sendTransaction(createChallengeFunction)
+        switch result {
+        case let .success(txHash):
+            await rpcService.waitForTxSuccess(txHash: txHash)
+            return true
+        case let .failure(error):
+            print("Fail to create profile: \(error)")
+            return false
         }
     }
 }

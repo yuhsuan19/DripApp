@@ -19,6 +19,7 @@ struct ChallengePoolScreen: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            // navi bar
             HStack(alignment: .center) {
                 Image(.naviBarLogo)
                     .resizable()
@@ -44,13 +45,27 @@ struct ChallengePoolScreen: View {
                     .foregroundStyle(DripColor.main)
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
+                HStack(spacing: 12) {
+                    PoolInfoChip(mainText: "30", subText: "Days Remaining")
+                    PoolInfoChip(mainText: "16", subText: "Participants")
+                    PoolInfoChip(mainText: "1,500", subText: "USDC Staked")
+                }
+                HStack {
+                    Text("Challenges")
+                        .font(.custom("LondrinaSolid-Regular", size: 48))
+                        .frame(height: 58)
+                    Spacer()
+                    Button(action: {
+                        viewModel.createChallenge()
+                    }) {
+                        Image(.createChallenge)
+                            .resizable()
+                            .frame(width: 48, height: 40)
+                    }
+                }
+                .frame(maxWidth: .infinity)
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 24) {
-                        HStack(spacing: 12) {
-                            PoolInfoChip(mainText: "30", subText: "Days Remaining")
-                            PoolInfoChip(mainText: "16", subText: "Participants")
-                            PoolInfoChip(mainText: "1,500", subText: "USDC Staked")
-                        }
                         LazyVGrid(columns: columns, spacing: 16, content: {
                             ForEach(colors, id: \.self) { color in
                                 NavigationLink(destination: {
@@ -79,12 +94,10 @@ struct ChallengePoolScreen: View {
                         })
                     }
                 }
-                ActionButton(title: "Create New Challenge")
-                Spacer().frame(height: 10)
             }
-            .padding(.init(top: 0, leading: 24, bottom: 0, trailing: 24))
+            .padding(.init(top: 24, leading: 24, bottom: 0, trailing: 24))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(DripColor.backgroundGrey.ignoresSafeArea())
+            .background(DripColor.backgroundMain.ignoresSafeArea())
             .sheet(isPresented: $isPresentingProfileScreen) {
                 let viewModel = ProfileViewModel(rpcService: viewModel.rpcService)
                 ProfileScreen(viewModel: viewModel)

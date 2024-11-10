@@ -52,7 +52,7 @@ final class RPCService {
             let tx = try function.transaction(
                 value: value,
                 gasPrice: gasPrice,
-                gasLimit: estimatedGas.multiplied(by: BigUInt(BigInt(20)))
+                gasLimit: estimatedGas.multiplied(by: BigUInt(BigInt(2)))
             )
             let txHash =  try await client.eth_sendRawTransaction(tx, withAccount: account)
             print("Transaction sent: \(txHash)")
