@@ -38,7 +38,6 @@ struct ChallengePoolScreen: View {
             .frame(height: 56)
             .frame(maxWidth: .infinity)
             .background(.black)
-            .padding(.bottom, 0)
             // pool info card
             TabView(selection: $selectedPoolIndex) {
                 ForEach(0...1, id: \.self) { index in
@@ -101,10 +100,7 @@ struct ChallengePoolScreen: View {
                                 .padding(.bottom, 12)
                                 .background(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(.black, lineWidth: 2)
-                                )
+                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 2))
                             }
                         }
                     })
