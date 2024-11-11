@@ -25,4 +25,6 @@ enum DripColor {
     static let backgroundMain = Color(red: 245/255, green: 250/255, blue: 255/255)
     static let primary500Primary = Color(red: 57 / 255, green: 167 / 255, blue: 255 / 255)
     static let primary500Disabled = Color(red: 117/255, green: 117/255, blue: 117/255)
+
+    static let activePoolBg = Color(red: 238/255, green: 238/255, blue: 238/255)
 }

@@ -11,16 +11,15 @@ struct ChallengePoolScreen: View {
     @StateObject private var viewModel: ChallengePoolViewModel
 
     @State private var isPresentingProfileScreen = false
+    @State private var selectedPoolIndex = 0
 
     let columns = [GridItem(spacing: 16), GridItem()]
-    let colors = Color.generateRandomColors(count: 10)
-
     init(viewModel: ChallengePoolViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 20) {
             // navi bar
             HStack(alignment: .center) {
                 Image(.naviBarLogo)
@@ -40,22 +39,28 @@ struct ChallengePoolScreen: View {
             .frame(maxWidth: .infinity)
             .background(.black)
             .padding(.bottom, 0)
-
-            VStack(spacing: 10) {
-                Text("Pool Name")
-                    .font(.system(size: 48, weight: .black))
-                    .foregroundStyle(DripColor.main)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.5)
-                HStack(spacing: 12) {
-                    PoolInfoChip(mainText: "30", subText: "Days Remaining")
-                    PoolInfoChip(mainText: "16", subText: "Participants")
-                    PoolInfoChip(mainText: "1,500", subText: "USDC Staked")
+            // pool info card
+            TabView(selection: $selectedPoolIndex) {
+                ForEach(0...1, id: \.self) { index in
+                    PoolInfoCard()
+                        .padding(.horizontal, 12) // 增加水平間距
+                        .tag(index)
                 }
+            }
+            .frame(height: 206)
+            .padding(.vertical, 0)
+            .padding(.horizontal, 12)
+            .background(.clear)
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .onChange(of: selectedPoolIndex) {
+                print("Selected pool index: \(selectedPoolIndex)")
+            }
+            // content
+            VStack(spacing: 20) {
+                // section header
                 HStack {
                     Text("Challenges")
                         .font(.custom("LondrinaSolid-Regular", size: 48))
-                        .frame(height: 58)
                     Spacer()
                     Button(action: {
                         viewModel.createChallenge()
@@ -66,73 +71,61 @@ struct ChallengePoolScreen: View {
                     }
                 }
                 .frame(maxWidth: .infinity)
+                .padding(.all, 0)
+                // grid view
                 ScrollView(showsIndicators: false) {
-                    VStack(spacing: 24) {
-                        LazyVGrid(columns: columns, spacing: 16, content: {
-                            ForEach(viewModel.challenges) { challenge in
-                                NavigationLink(destination: {
-                                    ChallengeDetailScreen()
-                                }) {
-                                    VStack(spacing: 0) {
-                                        DripColor.main.aspectRatio(1, contentMode: .fill)
-                                            .padding(.bottom, 10)
+                    LazyVGrid(columns: columns, spacing: 16, content: {
+                        ForEach(viewModel.challenges) { challenge in
+                            NavigationLink(destination: {
+                                ChallengeDetailScreen()
+                            }) {
+                                VStack(spacing: 12) {
+                                    Image(.challenge0)
+                                        .resizable()
+                                        .aspectRatio(1, contentMode: .fill)
+                                    VStack (spacing: 4) {
                                         Text(challenge.title)
-                                            .font(.system(size: 14, weight: .light))
-                                            .foregroundStyle(DripColor.mainText)
-                                            .padding(.horizontal, 12)
+                                            .lineLimit(1)
+                                            .minimumScaleFactor(0.5)
+                                            .font(.system(size: 16, weight: .medium))
+                                            .foregroundStyle(.black)
                                             .frame(maxWidth: .infinity, alignment: .leading)
-                                            .padding(.bottom, 2)
                                         Text("30 USDC Staked")
-                                            .font(.system(size: 12, weight: .thin))
-                                            .foregroundStyle(DripColor.subText)
-                                            .padding(.horizontal, 12)
+                                            .font(.system(size: 12, weight: .regular))
+                                            .foregroundStyle(DripColor.primary500Disabled)
                                             .frame(maxWidth: .infinity, alignment: .leading)
-                                    }
-                                    .padding(.bottom, 10)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                                    }                                            
+                                    .padding(.horizontal, 12)
+
                                 }
+                                .padding(.bottom, 12)
+                                .background(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(.black, lineWidth: 2)
+                                )
                             }
-//                            ForEach(colors, id: \.self) { color in
-//                                NavigationLink(destination: {
-//                                    ChallengeDetailScreen()
-//                                }) {
-//                                    VStack(spacing: 0) {
-//                                        color.aspectRatio(1, contentMode: .fill)
-//                                            .padding(.bottom, 10)
-//                                        Text("Challenge Name")
-//                                            .font(.system(size: 14, weight: .light))
-//                                            .foregroundStyle(DripColor.mainText)
-//                                            .padding(.horizontal, 12)
-//                                            .frame(maxWidth: .infinity, alignment: .leading)
-//                                            .padding(.bottom, 2)
-//                                        Text("30 USDC Staked")
-//                                            .font(.system(size: 12, weight: .thin))
-//                                            .foregroundStyle(DripColor.subText)
-//                                            .padding(.horizontal, 12)
-//                                            .frame(maxWidth: .infinity, alignment: .leading)
-//                                    }
-//                                    .padding(.bottom, 10)
-//                                    .background(.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-//                                }
-//                            }
-                        })
-                    }
+                        }
+                    })
+                    .padding(.top, 1.5)
+                    .padding(.horizontal, 1.5)
                 }
             }
-            .padding(.init(top: 24, leading: 24, bottom: 0, trailing: 24))
+            .padding(.init(top: 0, leading: 24, bottom: 1, trailing: 24))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(DripColor.backgroundMain.ignoresSafeArea())
+            .background(.clear)
             .sheet(isPresented: $isPresentingProfileScreen, onDismiss: {
                 viewModel.fetchChallenges()
             }) {
                 let viewModel = ProfileViewModel(rpcService: viewModel.rpcService)
                 ProfileScreen(viewModel: viewModel)
             }
-            .onAppear {
-                viewModel.fetchChallenges()
-            }
+        }
+        .background(DripColor.backgroundMain.ignoresSafeArea())
+        .padding(.all, 0)
+        .onAppear {
+            viewModel.fetchChallenges()
         }
     }
 }

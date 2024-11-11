@@ -27,6 +27,7 @@
 		3433B6912CD9168F002FCA1E /* SetProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6902CD9168F002FCA1E /* SetProfileScreen.swift */; };
 		3433B6932CD91890002FCA1E /* DripAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6922CD91890002FCA1E /* DripAvatar.swift */; };
 		3433B6952CD91E23002FCA1E /* SetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6942CD91E23002FCA1E /* SetProfileViewModel.swift */; };
+		348D93302CE248FF008E4AF0 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D932F2CE248FF008E4AF0 /* ChallengeCell.swift */; };
 		349025672CDF1AF5004ECB8F /* LondrinaSolid-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 349025632CDF1AEB004ECB8F /* LondrinaSolid-Black.ttf */; };
 		349025682CDF1AF8004ECB8F /* LondrinaSolid-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 349025652CDF1AEB004ECB8F /* LondrinaSolid-Light.ttf */; };
 		349025692CDF1AFA004ECB8F /* LondrinaSolid-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 349025642CDF1AEB004ECB8F /* LondrinaSolid-Regular.ttf */; };
@@ -46,6 +47,7 @@
 		349025862CE0B11E004ECB8F /* CreateChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349025852CE0B11E004ECB8F /* CreateChallenge.swift */; };
 		349025892CE0B4F5004ECB8F /* DripChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349025882CE0B4F5004ECB8F /* DripChallenge.swift */; };
 		3490258B2CE0B84C004ECB8F /* GetChallanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490258A2CE0B84C004ECB8F /* GetChallanges.swift */; };
+		3490258E2CE196C4004ECB8F /* PoolInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490258D2CE196C4004ECB8F /* PoolInfoCard.swift */; };
 		3494BB802CC511A400490373 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 3494BB7F2CC511A400490373 /* web3.swift */; };
 		3494BB842CCE148A00490373 /* DripColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB832CCE148A00490373 /* DripColor.swift */; };
 		3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3494BB872CCE196C00490373 /* SignInViewModel.swift */; };
@@ -101,6 +103,7 @@
 		3433B6902CD9168F002FCA1E /* SetProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileScreen.swift; sourceTree = "<group>"; };
 		3433B6922CD91890002FCA1E /* DripAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripAvatar.swift; sourceTree = "<group>"; };
 		3433B6942CD91E23002FCA1E /* SetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewModel.swift; sourceTree = "<group>"; };
+		348D932F2CE248FF008E4AF0 /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
 		3490255F2CDF1969004ECB8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		349025632CDF1AEB004ECB8F /* LondrinaSolid-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LondrinaSolid-Black.ttf"; sourceTree = "<group>"; };
 		349025642CDF1AEB004ECB8F /* LondrinaSolid-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LondrinaSolid-Regular.ttf"; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		349025852CE0B11E004ECB8F /* CreateChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallenge.swift; sourceTree = "<group>"; };
 		349025882CE0B4F5004ECB8F /* DripChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripChallenge.swift; sourceTree = "<group>"; };
 		3490258A2CE0B84C004ECB8F /* GetChallanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChallanges.swift; sourceTree = "<group>"; };
+		3490258D2CE196C4004ECB8F /* PoolInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolInfoCard.swift; sourceTree = "<group>"; };
 		3494BB832CCE148A00490373 /* DripColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripColor.swift; sourceTree = "<group>"; };
 		3494BB872CCE196C00490373 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		3494BB892CCE198400490373 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
@@ -199,10 +203,9 @@
 		3433B6712CD38F83002FCA1E /* ChallengePool */ = {
 			isa = PBXGroup;
 			children = (
+				3490258C2CE196A8004ECB8F /* Components */,
 				3433B6722CD38FB9002FCA1E /* ChallengePoolScreen.swift */,
 				3490257C2CE07877004ECB8F /* ChallengePoolViewModel.swift */,
-				3433B6742CD3B139002FCA1E /* ProfileChip.swift */,
-				3433B67F2CD61B0F002FCA1E /* PoolInfoChip.swift */,
 			);
 			path = ChallengePool;
 			sourceTree = "<group>";
@@ -284,6 +287,17 @@
 				349025882CE0B4F5004ECB8F /* DripChallenge.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3490258C2CE196A8004ECB8F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3433B6742CD3B139002FCA1E /* ProfileChip.swift */,
+				3433B67F2CD61B0F002FCA1E /* PoolInfoChip.swift */,
+				3490258D2CE196C4004ECB8F /* PoolInfoCard.swift */,
+				348D932F2CE248FF008E4AF0 /* ChallengeCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		3494BB812CCE146400490373 /* Constants */ = {
@@ -559,6 +573,7 @@
 				3433B66D2CD22797002FCA1E /* Web3AuthService.swift in Sources */,
 				3433B6802CD61B0F002FCA1E /* PoolInfoChip.swift in Sources */,
 				34AC126E2CC3A058001044D3 /* LaunchViewModel.swift in Sources */,
+				3490258E2CE196C4004ECB8F /* PoolInfoCard.swift in Sources */,
 				349025752CDF5368004ECB8F /* DripProfile.swift in Sources */,
 				34AC12372CC39CB6001044D3 /* ContentView.swift in Sources */,
 				3490258B2CE0B84C004ECB8F /* GetChallanges.swift in Sources */,
@@ -585,6 +600,7 @@
 				3433B67A2CD3B460002FCA1E /* CircleAvatar.swift in Sources */,
 				3433B6652CD0DA2E002FCA1E /* ActionButton.swift in Sources */,
 				3433B6852CD6657D002FCA1E /* TopToolBar.swift in Sources */,
+				348D93302CE248FF008E4AF0 /* ChallengeCell.swift in Sources */,
 				3433B68C2CD67B66002FCA1E /* QuestView.swift in Sources */,
 				349025712CDF50AE004ECB8F /* GetProfile.swift in Sources */,
 				349025732CDF52BA004ECB8F /* DripProfileContract.swift in Sources */,
