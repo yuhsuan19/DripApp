@@ -11,6 +11,7 @@ struct ChallengePoolScreen: View {
     @StateObject private var viewModel: ChallengePoolViewModel
 
     @State private var isPresentingProfileScreen = false
+    @State private var isPresentingCreateChallengeScreen = false
     @State private var selectedPoolIndex = 0
 
     let columns = [GridItem(spacing: 16), GridItem()]
@@ -62,7 +63,7 @@ struct ChallengePoolScreen: View {
                         .font(.custom("LondrinaSolid-Regular", size: 48))
                     Spacer()
                     Button(action: {
-                        viewModel.createChallenge()
+                        isPresentingCreateChallengeScreen = true
                     }) {
                         Image(.createChallenge)
                             .resizable()
@@ -116,6 +117,11 @@ struct ChallengePoolScreen: View {
             }) {
                 let viewModel = ProfileViewModel(rpcService: viewModel.rpcService)
                 ProfileScreen(viewModel: viewModel)
+            }
+            .sheet(isPresented: $isPresentingCreateChallengeScreen, onDismiss: {
+                viewModel.fetchChallenges()
+            }) {
+                CreateChallengeScreen()
             }
         }
         .background(DripColor.backgroundMain.ignoresSafeArea())
