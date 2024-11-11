@@ -13,6 +13,7 @@ struct QuestView: View {
     let totalTime: CGFloat = 10.0
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
+    var onComplete: (() -> Void)?
 
     var body: some View {
         VStack(spacing: 0) {
@@ -54,10 +55,18 @@ struct QuestView: View {
             Spacer().frame(height: 20)
 
             VStack(spacing: 16) {
-                StokeButton(title: "地窖、地下室")
-                StokeButton(title: "原因、起因")
-                StokeButton(title: "大災難")
-                StokeButton(title: "家務雜物")
+                StokeButton(title: "地窖、地下室") {
+                    onComplete?()
+                }
+                StokeButton(title: "原因、起因") {
+                    onComplete?()
+                }
+                StokeButton(title: "大災難") {
+                    onComplete?()
+                }
+                StokeButton(title: "家務雜物"){
+                    onComplete?()
+                }
             }
             Spacer()
         }

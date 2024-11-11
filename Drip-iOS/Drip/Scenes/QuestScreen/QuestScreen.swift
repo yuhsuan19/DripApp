@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct QuestScreen: View {
+    @State var isCompleteDailyQuest = false
+
     var body: some View {
         VStack {
-            QuestView()
+            if isCompleteDailyQuest {
+                QuestResultScreen()
+            } else {
+                QuestView {
+                    isCompleteDailyQuest = true
+                }
+            }
         }
         .padding(.horizontal, 24)
         .padding(.top, 24)

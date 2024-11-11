@@ -28,6 +28,7 @@
 		3433B6932CD91890002FCA1E /* DripAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6922CD91890002FCA1E /* DripAvatar.swift */; };
 		3433B6952CD91E23002FCA1E /* SetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6942CD91E23002FCA1E /* SetProfileViewModel.swift */; };
 		348D93302CE248FF008E4AF0 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D932F2CE248FF008E4AF0 /* ChallengeCell.swift */; };
+		348D93322CE26297008E4AF0 /* QuestResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D93312CE26297008E4AF0 /* QuestResultScreen.swift */; };
 		349025672CDF1AF5004ECB8F /* LondrinaSolid-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 349025632CDF1AEB004ECB8F /* LondrinaSolid-Black.ttf */; };
 		349025682CDF1AF8004ECB8F /* LondrinaSolid-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 349025652CDF1AEB004ECB8F /* LondrinaSolid-Light.ttf */; };
 		349025692CDF1AFA004ECB8F /* LondrinaSolid-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 349025642CDF1AEB004ECB8F /* LondrinaSolid-Regular.ttf */; };
@@ -104,6 +105,7 @@
 		3433B6922CD91890002FCA1E /* DripAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripAvatar.swift; sourceTree = "<group>"; };
 		3433B6942CD91E23002FCA1E /* SetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewModel.swift; sourceTree = "<group>"; };
 		348D932F2CE248FF008E4AF0 /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
+		348D93312CE26297008E4AF0 /* QuestResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestResultScreen.swift; sourceTree = "<group>"; };
 		3490255F2CDF1969004ECB8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		349025632CDF1AEB004ECB8F /* LondrinaSolid-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LondrinaSolid-Black.ttf"; sourceTree = "<group>"; };
 		349025642CDF1AEB004ECB8F /* LondrinaSolid-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LondrinaSolid-Regular.ttf"; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			children = (
 				3433B6892CD67B5C002FCA1E /* QuestScreen.swift */,
 				3433B68B2CD67B66002FCA1E /* QuestView.swift */,
+				348D93312CE26297008E4AF0 /* QuestResultScreen.swift */,
 			);
 			path = QuestScreen;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				349025712CDF50AE004ECB8F /* GetProfile.swift in Sources */,
 				349025732CDF52BA004ECB8F /* DripProfileContract.swift in Sources */,
 				349025772CDF5454004ECB8F /* CreateProfile.swift in Sources */,
+				348D93322CE26297008E4AF0 /* QuestResultScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
