@@ -12,7 +12,7 @@ struct ActionButton: View {
     var action: (() -> Void)?
     let backgroundColor: Color
 
-    init(title: String, backgroundColor: Color = DripColor.main, action: (() -> Void)? = nil) {
+    init(title: String, backgroundColor: Color = DripColor.primary500Primary, action: (() -> Void)? = nil) {
         self.title = title
         self.backgroundColor = backgroundColor
         self.action = action

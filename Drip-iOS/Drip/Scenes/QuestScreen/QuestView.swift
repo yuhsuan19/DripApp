@@ -18,44 +18,42 @@ struct QuestView: View {
         VStack(spacing: 0) {
             HStack(alignment: .bottom, spacing: 0) {
                 Text("Question 5 / 10")
+                    .font(.custom("LondrinaSolid-Regular", size: 36))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.system(size: 36, weight: .heavy))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.5)
-                    .foregroundColor(DripColor.darkSub)
-                Spacer().frame(width: 16)
+                    .foregroundColor(.black)
                 Image(.clock)
                     .resizable()
                     .frame(width: 24, height: 24)
                 Text("\(String(format: "%.1f", timeRemaining)) s")
+                    .font(.system(size: 18, weight: .medium))
                     .frame(width: 55)
-                    .foregroundStyle(DripColor.main)
+                    .foregroundStyle(DripColor.primary500Primary)
             }
-            Spacer().frame(height: 10)
-            HStack {
-                GeometryReader { geometry in
-                    ZStack(alignment: .leading) {
-                        Rectangle()
-                            .frame(width: geometry.size.width)
-                            .foregroundColor(DripColor.main)
-                        Rectangle()
-                            .frame(width: (1 - (timeRemaining / totalTime)) * geometry.size.width)
-                            .foregroundColor(DripColor.lightSub)
-                            .animation(.linear(duration: 1), value: timeRemaining)
-                    }
-                }.frame(height: 5)
-                Spacer()
+            Spacer().frame(height: 16)
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .frame(width: geometry.size.width)
+                        .foregroundColor(DripColor.primary500Primary)
+                    Rectangle()
+                        .frame(width: (1 - (timeRemaining / totalTime)) * geometry.size.width)
+                        .foregroundColor(Color.init(red: 176/255, green: 220/255, blue: 255/255))
+                        .animation(.linear(duration: 1), value: timeRemaining)
+                }
             }
-            Spacer().frame(height: 30)
+            .frame(height: 5)
+            .clipShape(RoundedRectangle(cornerRadius: 2.5))
+
+            Spacer().frame(height: 20)
             Text(sampleQuestion())
-                .font(.system(size: 32))
+                .font(.system(size: 30, weight: .bold))
                 .frame(alignment: .top)
                 .minimumScaleFactor(0.5)
                 .fixedSize(horizontal: false, vertical: false)
                 .frame(maxHeight: 200)
-                .padding(.horizontal, 20)
-            Spacer().frame(height: 30)
-            VStack(spacing: 24) {
+            Spacer().frame(height: 20)
+
+            VStack(spacing: 16) {
                 StokeButton(title: "地窖、地下室")
                 StokeButton(title: "原因、起因")
                 StokeButton(title: "大災難")
@@ -76,12 +74,12 @@ struct QuestView: View {
         let sentence = "The earthquake was a terrible catastrophe."
         let word = "catastrophe"
 
-        let textColor = UIColor(red: 80/255, green: 87/255, blue: 142/255, alpha: 1)
+        let textColor = UIColor.black
 
         let range = (sentence.lowercased() as NSString).range(of: word.lowercased())
         let mutableAttributedString = NSMutableAttributedString.init(string: sentence)
         mutableAttributedString.addAttribute(.foregroundColor, value: textColor, range: NSRange(location: 0, length: sentence.count))
-        mutableAttributedString.addAttribute(.foregroundColor, value: UIColor(red: 57/255, green: 162/255, blue: 219/255, alpha: 1), range: range)
+        mutableAttributedString.addAttribute(.foregroundColor, value: UIColor(red: 57/255, green: 167/255, blue: 255/255, alpha: 1), range: range)
 
         return AttributedString(mutableAttributedString)
     }

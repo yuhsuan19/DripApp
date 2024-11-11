@@ -23,7 +23,7 @@ struct DripAvatar: View {
             .frame(width: size, height: size)
             .clipShape(Circle())
             .overlay(
-                Circle().stroke(DripColor.main, lineWidth: 4)
+                Circle().stroke(DripColor.primary500Primary, lineWidth: 4)
             )
         } else {
             ZStack {
@@ -35,7 +35,7 @@ struct DripAvatar: View {
             .frame(width: size, height: size)
             .clipShape(Circle())
             .overlay(
-                Circle().stroke(DripColor.main, lineWidth: 4)
+                Circle().stroke(DripColor.primary500Primary, lineWidth: 4)
             )
         }
     }

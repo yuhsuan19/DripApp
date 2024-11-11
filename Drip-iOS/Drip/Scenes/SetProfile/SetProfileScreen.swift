@@ -42,7 +42,7 @@ struct SetProfileScreen: View {
                 }) {
                     Text("Generate Nouns!")
                         .font(.custom("LondrinaSolid-Regular", size: 36))
-                        .foregroundStyle(DripColor.main)
+                        .foregroundStyle(DripColor.primary500Primary)
                         .frame(height: 43)
                 }
             }

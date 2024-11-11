@@ -10,11 +10,11 @@ import SwiftUI
 struct ChallengeCell: View {
     var body: some View {
         VStack(spacing: 0) {
-            DripColor.main.aspectRatio(1, contentMode: .fill)
+            DripColor.primary500Primary.aspectRatio(1, contentMode: .fill)
                 .padding(.bottom, 10)
             Text("Hello")
                 .font(.system(size: 14, weight: .light))
-                .foregroundStyle(DripColor.mainText)
+                .foregroundStyle(DripColor.primary500Primary)
                 .padding(.horizontal, 12)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 2)

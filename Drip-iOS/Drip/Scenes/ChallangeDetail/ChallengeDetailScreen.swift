@@ -44,7 +44,7 @@ struct ChallengeDetailScreen: View {
                             Text("11/16")
                                 .font(.system(size: 10))
                                 .foregroundStyle(DripColor.primary500Disabled)
-                            DripColor.main
+                            DripColor.primary500Primary
                                 .frame(width: 16, height: 16)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
@@ -53,7 +53,7 @@ struct ChallengeDetailScreen: View {
                             Text("11/16")
                                 .font(.system(size: 10))
                                 .foregroundStyle(DripColor.primary500Disabled)
-                            DripColor.main
+                            DripColor.primary500Primary
                                 .frame(width: 16, height: 16)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
@@ -62,7 +62,7 @@ struct ChallengeDetailScreen: View {
                             Text("11/16")
                                 .font(.system(size: 10))
                                 .foregroundStyle(DripColor.primary500Disabled)
-                            DripColor.main
+                            DripColor.primary500Primary
                                 .frame(width: 16, height: 16)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
@@ -71,7 +71,7 @@ struct ChallengeDetailScreen: View {
                             Text("11/16")
                                 .font(.system(size: 10))
                                 .foregroundStyle(DripColor.primary500Disabled)
-                            DripColor.main
+                            DripColor.primary500Primary
                                 .frame(width: 16, height: 16)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
@@ -80,7 +80,7 @@ struct ChallengeDetailScreen: View {
                             Text("11/16")
                                 .font(.system(size: 10))
                                 .foregroundStyle(DripColor.primary500Disabled)
-                            DripColor.main
+                            DripColor.primary500Primary
                                 .frame(width: 16, height: 16)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
@@ -116,7 +116,7 @@ struct ChallengeDetailScreen: View {
             .padding(.horizontal, 24)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.bottom, 40)
+        .padding(.bottom, 20)
         .background(DripColor.backgroundMain.ignoresSafeArea())
         .navigationBarBackButtonHidden()
         .sheet(isPresented: $isPresentingQuestScreen) {
