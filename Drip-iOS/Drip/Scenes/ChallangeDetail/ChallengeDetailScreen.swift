@@ -11,7 +11,12 @@ struct ChallengeDetailScreen: View {
     @Environment(\.dismiss) var dismiss
     @State private var isPresentingQuestScreen = false
 
-    private let color = Color.random()
+    @StateObject private var viewModel: ChallengeDetailViewModel
+
+    init(viewModel: ChallengeDetailViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
         VStack(spacing: 24) {
             // navi bar
@@ -123,9 +128,9 @@ struct ChallengeDetailScreen: View {
         .sheet(isPresented: $isPresentingQuestScreen) {
             QuestScreen()
         }
+        .onAppear {
+            viewModel.fetchChallengeDetail()
+        }
     }
 }
 
-#Preview {
-    ChallengeDetailScreen()
-}

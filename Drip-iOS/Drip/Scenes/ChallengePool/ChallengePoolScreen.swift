@@ -81,7 +81,8 @@ struct ChallengePoolScreen: View {
                     LazyVGrid(columns: columns, spacing: 16, content: {
                         ForEach(viewModel.challenges) { challenge in
                             NavigationLink(destination: {
-                                ChallengeDetailScreen()
+                                let viewModel = ChallengeDetailViewModel(tokenId: challenge.rawId, rpcService: viewModel.rpcService)
+                                ChallengeDetailScreen(viewModel: viewModel)
                             }) {
                                 VStack(spacing: 12) {
                                     challenge.nftImage
