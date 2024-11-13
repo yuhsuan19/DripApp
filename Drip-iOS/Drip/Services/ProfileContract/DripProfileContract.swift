@@ -14,6 +14,7 @@ final class DripProfileContract {
     private let contractAddress: EthereumAddress
 
     static var profileId: BigUInt? = nil
+    static var epochId: BigUInt = 0
 
     init(rpcService: RPCService, contractAddress: String) {
         self.rpcService = rpcService
@@ -61,7 +62,7 @@ final class DripProfileContract {
             let response = try await GetChallenges(
                 contract:  EthereumAddress(stringLiteral: DripContracts.profile),
                 profileId: profileId,
-                epochId: BigUInt(0)
+                epochId: DripProfileContract.epochId
             ).call(withClient: rpcService.client, responseType: GetChallengesResponse.self)
             return response.challenges
         } catch {
@@ -70,15 +71,22 @@ final class DripProfileContract {
         }
     }
 
-    func createChallenge() async -> Bool {
+    func createChallenge(
+        name: String,
+        desc: String,
+        stakeAmount: BigUInt
+    ) async -> Bool {
+        guard let profileId = Self.profileId else {
+            fatalError("Invalid profile id")
+        }
         let createChallengeFunction = CreateChallenge(
             from: rpcService.rawAddress,
             contract: contractAddress,
-            profileId: BigUInt(1),
-            name: "Challenge Name_3",
-            desc: "Challenge Description_3",
+            profileId: profileId,
+            name: name,
+            desc: desc,
             stakeToken: EthereumAddress(stringLiteral: DripContracts.dripERC20Token),
-            stakeAmount: BigUInt(2.23).multiplied(by: BigUInt(10).power(18)),
+            stakeAmount: stakeAmount,
             duration: 5
         )
         let result = await rpcService.sendTransaction(createChallengeFunction)

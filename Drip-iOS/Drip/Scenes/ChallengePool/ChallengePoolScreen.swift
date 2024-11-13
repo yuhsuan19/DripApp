@@ -67,8 +67,7 @@ struct ChallengePoolScreen: View {
                         .foregroundStyle(.black)
                     Spacer()
                     Button(action: {
-//                        isPresentingCreateChallengeScreen = true
-                        viewModel.createChallenge()
+                        isPresentingCreateChallengeScreen = true
                     }) {
                         Image(.createChallenge)
                             .resizable()
@@ -85,7 +84,7 @@ struct ChallengePoolScreen: View {
                                 ChallengeDetailScreen()
                             }) {
                                 VStack(spacing: 12) {
-                                    Image(.challenge0)
+                                    challenge.nftImage
                                         .resizable()
                                         .aspectRatio(1, contentMode: .fill)
                                     VStack (spacing: 4) {
@@ -95,7 +94,7 @@ struct ChallengePoolScreen: View {
                                             .font(.system(size: 16, weight: .medium))
                                             .foregroundStyle(.black)
                                             .frame(maxWidth: .infinity, alignment: .leading)
-                                        Text("30 USDC Staked")
+                                        Text("\(challenge.displayedStakedAmount) \(DripContracts.dripERC20TokenSymbol) Staked")
                                             .font(.system(size: 12, weight: .regular))
                                             .foregroundStyle(DripColor.primary500Disabled)
                                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -128,7 +127,8 @@ struct ChallengePoolScreen: View {
             .sheet(isPresented: $isPresentingCreateChallengeScreen, onDismiss: {
                 viewModel.fetchChallenges()
             }) {
-                CreateChallengeScreen()
+                let viewModel = CreateChallengeViewModel(rpcService: viewModel.rpcService)
+                CreateChallengeScreen(viewModel: viewModel)
             }
         }
         .background(DripColor.backgroundMain.ignoresSafeArea())

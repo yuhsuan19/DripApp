@@ -8,6 +8,7 @@
 import Foundation
 import web3
 import BigInt
+import SwiftUI
 
 struct DripChallenge: ABITuple {
     static var types: [ABIType.Type] { [
@@ -69,9 +70,9 @@ struct DripChallenge: ABITuple {
     init?(values: [ABIDecoder.DecodedValue]) throws {
         self.rawId = try values[0].decoded()
         self.rawEpochId = try values[1].decoded()
-        self.stakeAmount =  try values[2].decoded()
-        self.startTime =  try values[3].decoded()
-        self.endTime =  try values[4].decoded()
+        self.startTime =  try values[2].decoded()
+        self.endTime =  try values[3].decoded()
+        self.stakeAmount =  try values[4].decoded()
         self.owner = try values[5].decoded()
         self.stakeToken =  try values[6].decoded()
         self.durationInDays =  try values[7].decoded()
@@ -116,4 +117,33 @@ extension DripChallenge: Identifiable {
     var id: String {
         return rawId.description
     }
+
+    var displayedStakedAmount: String {
+        return stakeAmount.description.convertBigIntToDecimalFormat(decimals: 18, decimalPlaces: 1)
+    }
+
+    var numberOfChecked: Int {
+        dailyCompletionTimestamps.filter {
+            !$0.isZero
+        }.count
+    }
+
+    var nftImage: Image {
+        Image("challenge-\(numberOfChecked)")
+    }
 }
+
+
+//struct DripSimpleChallenge: ABITuple {
+//    static var types: [ABIType.Type] { [
+//        BigUInt.self, // token id
+//        BigUInt.self, // epoch id
+//        String.self, // name
+//        BigUInt.self, // amount
+//        BigUInt.self // completed days
+//    ] }
+//
+//    let rawId: BigUInt
+//    let rawEpochId: BigUInt
+//
+//}

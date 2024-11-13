@@ -14,7 +14,6 @@ final class ChallengePoolViewModel: ObservableObject {
 
     let rpcService: RPCService
 
-    private lazy var dripERC20Contract = DripERC20Contract(rpcService: rpcService, contractAddress: DripContracts.dripERC20Token)
     private lazy var profileContract = DripProfileContract(rpcService: rpcService, contractAddress: DripContracts.profile)
 
     init(rpcService: RPCService) {
@@ -29,16 +28,5 @@ final class ChallengePoolViewModel: ObservableObject {
             }
             print("Fetch challenges. Count: \(challenges.count)")
         }
-    }
-
-    func createChallenge() {
-        print(DripProfileContract.profileId)
-//        Task {
-//            let isSuccessful = await dripERC20Contract.approveTransfer(amount:  BigUInt(2.23).multiplied(by: BigUInt(10).power(18)))
-//            if isSuccessful {
-//                let result = await profileContract.createChallenge()
-//                print("Challenge creation result: \(result)")
-//            }
-//        }
     }
 }

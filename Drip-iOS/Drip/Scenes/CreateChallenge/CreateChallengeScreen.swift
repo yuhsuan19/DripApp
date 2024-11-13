@@ -12,6 +12,13 @@ struct CreateChallengeScreen: View {
     @State private var amount: String = ""
     @State private var days: String = ""
     @State private var desc: String = ""
+    @Environment(\.dismiss) private var dismiss
+
+    @StateObject private var viewModel: CreateChallengeViewModel
+
+    init(viewModel: CreateChallengeViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         VStack(spacing: 24) {
@@ -60,14 +67,17 @@ struct CreateChallengeScreen: View {
                     .foregroundStyle(DripColor.mainText)
             }
             Spacer()
-            ActionButton(title: "Create", backgroundColor: DripColor.warning)
+            ActionButton(title: "Create", backgroundColor: DripColor.warning) {
+                viewModel.createChallenge(name: name, desc: desc, stakeAmount: amount)
+            }
         }
         .padding(.init(top: 24, leading: 24, bottom: 40, trailing: 24))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(DripColor.backgroundMain.ignoresSafeArea())
+        .onChange(of: viewModel.isChallengeCreated) {
+            if viewModel.isChallengeCreated {
+                dismiss()
+            }
+        }
     }
-}
-
-#Preview {
-    CreateChallengeScreen()
 }
