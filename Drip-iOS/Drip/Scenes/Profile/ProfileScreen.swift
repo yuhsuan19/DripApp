@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct ProfileScreen: View {
+    var onLogOut: (() -> Void)?
+    
     @StateObject private var viewModel: ProfileViewModel
 
-    init(viewModel: ProfileViewModel) {
+    init(viewModel: ProfileViewModel, onLogOut: (() -> Void)? = nil) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.onLogOut = onLogOut
     }
 
     var body: some View {
@@ -73,7 +76,9 @@ struct ProfileScreen: View {
             }
 
             Spacer()
-            ActionButton(title: "Log Out", backgroundColor: DripColor.warning)
+            ActionButton(title: "Log Out", backgroundColor: DripColor.warning) {
+                onLogOut?()
+            }
         }
         .padding(.init(top: 24, leading: 24, bottom: 40, trailing: 24))
         .frame(maxWidth: .infinity, maxHeight: .infinity)

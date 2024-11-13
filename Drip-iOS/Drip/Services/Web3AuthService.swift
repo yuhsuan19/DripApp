@@ -50,4 +50,14 @@ final class Web3AuthService {
             print("Fail to login: \(error)")
         }
     }
+
+    func logOut() async -> Bool{
+        do {
+            try await web3Auth?.logout()
+            return true
+        } catch {
+            print("Fail to logout: \(error)")
+            return false
+        }
+    }
 }

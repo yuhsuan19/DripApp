@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ChallengePoolScreen: View {
+    var onLogOut: (() -> Void)?
+
     @StateObject private var viewModel: ChallengePoolViewModel
 
     @State private var isPresentingProfileScreen = false
@@ -15,8 +17,9 @@ struct ChallengePoolScreen: View {
     @State private var selectedPoolIndex = 0
 
     let columns = [GridItem(spacing: 16), GridItem()]
-    init(viewModel: ChallengePoolViewModel) {
+    init(viewModel: ChallengePoolViewModel, onLogOut: (() -> Void)? = nil) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.onLogOut = onLogOut
     }
 
     var body: some View {
@@ -118,7 +121,9 @@ struct ChallengePoolScreen: View {
                 viewModel.fetchChallenges()
             }) {
                 let viewModel = ProfileViewModel(rpcService: viewModel.rpcService)
-                ProfileScreen(viewModel: viewModel)
+                ProfileScreen(viewModel: viewModel) {
+                    onLogOut?()
+                }
             }
             .sheet(isPresented: $isPresentingCreateChallengeScreen, onDismiss: {
                 viewModel.fetchChallenges()

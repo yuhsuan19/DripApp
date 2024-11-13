@@ -70,7 +70,15 @@ extension DripApp {
             fatalError("Fail to initialize RPCService")
         }
         let viewModel = ChallengePoolViewModel(rpcService: rpcService)
-        let challengePoolScreen = ChallengePoolScreen(viewModel: viewModel)
+        let challengePoolScreen = ChallengePoolScreen(viewModel: viewModel) {
+            Task {
+                if await web3AuthService.logOut() {
+                    DispatchQueue.main.async {
+                        userSessionState = .guest
+                    }
+                }
+            }
+        }
         return challengePoolScreen
     }
 
