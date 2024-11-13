@@ -61,9 +61,11 @@ struct ChallengePoolScreen: View {
                 HStack {
                     Text("Challenges")
                         .font(.custom("LondrinaSolid-Regular", size: 48))
+                        .foregroundStyle(.black)
                     Spacer()
                     Button(action: {
-                        isPresentingCreateChallengeScreen = true
+//                        isPresentingCreateChallengeScreen = true
+                        viewModel.createChallenge()
                     }) {
                         Image(.createChallenge)
                             .resizable()

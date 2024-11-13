@@ -54,3 +54,60 @@ struct CreateChallenge: ABIFunction {
         try encoder.encode(duration)
     }
 }
+
+
+struct CreateChallengeTuple: ABITuple {
+    static var types: [ABIType.Type] { [
+        BigUInt.self,
+        String.self,
+        String.self,
+        EthereumAddress.self,
+        BigUInt.self,
+        UInt16.self
+    ] }
+
+    let profileId: BigUInt
+    let name: String
+    let desc: String
+    let stakeToken: EthereumAddress
+    let stakeAmount: BigUInt
+    let duration: UInt16
+
+    init(
+        profileId: BigUInt,
+        name: String,
+        desc: String,
+        stakeToken: EthereumAddress,
+        stakeAmount: BigUInt,
+        duration: UInt16
+    ) {
+        self.profileId = profileId
+        self.name = name
+        self.desc = desc
+        self.stakeToken = stakeToken
+        self.stakeAmount = stakeAmount
+        self.duration = duration
+    }
+
+    init?(values: [ABIDecoder.DecodedValue]) throws {
+        return nil
+    }
+
+    func encode(to encoder: ABIFunctionEncoder) throws {
+        try encoder.encode(profileId)
+        try encoder.encode(name)
+        try encoder.encode(desc)
+        try encoder.encode(stakeToken)
+        try encoder.encode(stakeAmount)
+        try encoder.encode(duration)
+    }
+
+    var encodableValues: [ABIType] { [
+        profileId,
+        name,
+        desc,
+        stakeToken,
+        stakeAmount,
+        duration
+    ] }
+}

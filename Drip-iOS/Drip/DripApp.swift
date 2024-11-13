@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import web3
 
 @main
 struct DripApp: App {
@@ -50,23 +51,7 @@ extension DripApp {
     private func configLaunchScreen() -> LaunchScreen {
         let viewModel = LaunchViewModel(web3AuthService: web3AuthService)
         let launchScreen = LaunchScreen(viewModel: viewModel) {
-            if let user = web3AuthService.user {
-                let rpcService = RPCService(user: user, rpcURL: BlockchainEnv.rpcURL, chainId: BlockchainEnv.chainId)
-                let profileContract = DripProfileContract(rpcService: rpcService!, contractAddress: DripContracts.profile)
-                Task {
-                    let result = await profileContract.getProfile()
-                    DispatchQueue.main.async {
-                        switch result {
-                        case .success:
-                            userSessionState = .active
-                        case .failure:
-                            userSessionState = .guest
-                        }
-                    }
-                }
-            } else {
-                userSessionState = .guest
-            }
+            getDripUserProfile()
         }
         return launchScreen
     }
@@ -74,7 +59,7 @@ extension DripApp {
     private func configSignInScreen() -> SignInScreen {
         let viewModel = SignInViewModel(web3AuthService: web3AuthService)
         let sigInScreen = SignInScreen(viewModel: viewModel) {
-            userSessionState = .active
+            getDripUserProfile()
         }
         return sigInScreen
     }
@@ -87,5 +72,29 @@ extension DripApp {
         let viewModel = ChallengePoolViewModel(rpcService: rpcService)
         let challengePoolScreen = ChallengePoolScreen(viewModel: viewModel)
         return challengePoolScreen
+    }
+
+    private func getDripUserProfile() {
+        if let user = web3AuthService.user {
+            print("Web3Auth User Info:")
+            print(user.privKey ?? "")
+            print((try? EthereumAccount(keyStorage: user))?.address.asString() ?? "")
+
+            let rpcService = RPCService(user: user, rpcURL: BlockchainEnv.rpcURL, chainId: BlockchainEnv.chainId)
+            let profileContract = DripProfileContract(rpcService: rpcService!, contractAddress: DripContracts.profile)
+            Task {
+                let result = await profileContract.getProfile()
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        userSessionState = .active
+                    case .failure:
+                        userSessionState = .guest
+                    }
+                }
+            }
+        } else {
+            userSessionState = .guest
+        }
     }
 }

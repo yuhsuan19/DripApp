@@ -11,19 +11,19 @@ import BigInt
 
 struct DripProfile: ABITuple {
     static var types: [ABIType.Type] { [
-        BigInt.self,
+        BigUInt.self,
         EthereumAddress.self,
         String.self,
         ABIArray<UInt32>.self
     ] }
 
-    var rawTokenId: BigInt
+    var rawTokenId: BigUInt
     var rawOwnerAddress: EthereumAddress
     var rawUserHandle: String
     var rawAvatars: [UInt32]
 
     init(
-        rawTokenId: BigInt,
+        rawTokenId: BigUInt,
         rawOwnerAddress: EthereumAddress,
         rawUserHandle: String,
         rawAvatars: [UInt32]

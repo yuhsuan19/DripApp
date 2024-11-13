@@ -8,10 +8,10 @@
 import Foundation
 
 enum DripContracts {
-    static let profile: String = "0xe7Fdf7cA838677DC4aD02f6205Dd805ed2d6a009"
-    static let challenge: String = "0xad9969D06f4056A04BC301492d15966819f449c3"
+    static let profile: String = "0x6D88080D7383913EBc6dB78d279bc8dEC23238B7"
+    static let challenge: String = "0xf37a38e892Fbc60e4EB3B02fC1E007cF57171C60"
 
-    static let dripERC20Token: String = "0x4152f292ef672B1b9C3eb95633BFDEFCCB369794"
+    static let dripERC20Token: String = "0x4152f292ef672b1b9c3eb95633bfdefccb369794"
     static let dripERC20TokenSymbol: String = "DRP"
     static let dripERC20TokenIcon: String = "drip-logo-full"
 }

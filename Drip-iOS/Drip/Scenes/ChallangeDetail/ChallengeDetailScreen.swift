@@ -95,6 +95,7 @@ struct ChallengeDetailScreen: View {
                         Text("Challenges name")
                             .font(.custom("LondrinaSolid-Regular", size: 36))
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundColor(.black)
                         Text("30 USDC Staked")
                             .font(.system(size: 16, weight: .medium))
                             .foregroundStyle(.black)

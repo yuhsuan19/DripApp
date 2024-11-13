@@ -33,6 +33,25 @@ struct ProfileScreen: View {
                     UIPasteboard.general.string = viewModel.accountAddress
                 }
                 ProfileRow(iconName: "email", text: $viewModel.email)
+                HStack(spacing: 5) {
+                    Image(.blockScoutLogo)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16, height: 16)
+                    Text("Check your account on explorer")
+                        .font(.system(size: 14))
+                        .foregroundStyle(DripColor.main)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.5)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(height: 20)
+                }
+                .padding(.all, 12)
+                .onTapGesture {
+                    if let url = URL(string: "https://base-sepolia.blockscout.com/address/\(viewModel.accountAddress)") {
+                        UIApplication.shared.open(url)
+                    }
+                }
             }
             .frame(maxWidth: .infinity)
             .background(.white)
