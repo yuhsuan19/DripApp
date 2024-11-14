@@ -33,6 +33,7 @@
 		345D9E232CE596F700682058 /* GetChallngeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D9E222CE596F700682058 /* GetChallngeDetail.swift */; };
 		345D9E262CE5989200682058 /* GetChallengeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D9E252CE5989200682058 /* GetChallengeDetail.swift */; };
 		345D9E282CE5993C00682058 /* SubmitDailyCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D9E272CE5993C00682058 /* SubmitDailyCompletion.swift */; };
+		345D9E2A2CE5D2D700682058 /* QuestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D9E292CE5D2D700682058 /* QuestViewModel.swift */; };
 		348D93302CE248FF008E4AF0 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D932F2CE248FF008E4AF0 /* ChallengeCell.swift */; };
 		348D93322CE26297008E4AF0 /* QuestResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D93312CE26297008E4AF0 /* QuestResultScreen.swift */; };
 		348D93352CE26AA4008E4AF0 /* CreateChallengeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D93342CE26AA4008E4AF0 /* CreateChallengeScreen.swift */; };
@@ -117,6 +118,7 @@
 		345D9E222CE596F700682058 /* GetChallngeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChallngeDetail.swift; sourceTree = "<group>"; };
 		345D9E252CE5989200682058 /* GetChallengeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChallengeDetail.swift; sourceTree = "<group>"; };
 		345D9E272CE5993C00682058 /* SubmitDailyCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitDailyCompletion.swift; sourceTree = "<group>"; };
+		345D9E292CE5D2D700682058 /* QuestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestViewModel.swift; sourceTree = "<group>"; };
 		348D932F2CE248FF008E4AF0 /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
 		348D93312CE26297008E4AF0 /* QuestResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestResultScreen.swift; sourceTree = "<group>"; };
 		348D93342CE26AA4008E4AF0 /* CreateChallengeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeScreen.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				3433B6892CD67B5C002FCA1E /* QuestScreen.swift */,
+				345D9E292CE5D2D700682058 /* QuestViewModel.swift */,
 				3433B68B2CD67B66002FCA1E /* QuestView.swift */,
 				348D93312CE26297008E4AF0 /* QuestResultScreen.swift */,
 			);
@@ -653,6 +656,7 @@
 				3433B67A2CD3B460002FCA1E /* CircleAvatar.swift in Sources */,
 				3433B6652CD0DA2E002FCA1E /* ActionButton.swift in Sources */,
 				345D9E282CE5993C00682058 /* SubmitDailyCompletion.swift in Sources */,
+				345D9E2A2CE5D2D700682058 /* QuestViewModel.swift in Sources */,
 				3433B6852CD6657D002FCA1E /* TopToolBar.swift in Sources */,
 				348D93302CE248FF008E4AF0 /* ChallengeCell.swift in Sources */,
 				3433B68C2CD67B66002FCA1E /* QuestView.swift in Sources */,

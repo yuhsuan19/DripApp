@@ -31,18 +31,7 @@ final class ChallengeDetailViewModel: ObservableObject {
         }
     }
 
-    func submitDailyCheck() {
-        let dayIndex = getTodayIndex()
-        Task {
-            let result = await challengeContract.submitDailyCheck(tokenId: challenge.rawId, day: UInt16(dayIndex))
-            if result {
-                print("Submit daily check success")
-            }
-        }
-
-    }
-
-    private func getTodayIndex() -> Int {
+    func getTodayIndex() -> Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd"
         let today = dateFormatter.string(from: Date())

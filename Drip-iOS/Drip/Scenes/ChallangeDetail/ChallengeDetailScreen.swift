@@ -117,8 +117,7 @@ struct ChallengeDetailScreen: View {
             }
             .padding(.horizontal, 24)
             ActionButton(title: "Daily Quest") {
-//                isPresentingQuestScreen = true
-                viewModel.submitDailyCheck()
+                isPresentingQuestScreen = true
             }
             .padding(.horizontal, 24)
         }
@@ -126,8 +125,11 @@ struct ChallengeDetailScreen: View {
         .padding(.bottom, 20)
         .background(DripColor.backgroundMain.ignoresSafeArea())
         .navigationBarBackButtonHidden()
-        .sheet(isPresented: $isPresentingQuestScreen) {
-            QuestScreen()
+        .sheet(isPresented: $isPresentingQuestScreen, onDismiss: {
+            viewModel.fetchChallengeDetail()
+        }) {
+            let viewModel = QuestViewModel(challenge: viewModel.challenge, rpcService: viewModel.rpcService, dayIndex: viewModel.getTodayIndex())
+            QuestScreen(viewModel: viewModel)
         }
         .onAppear {
             viewModel.fetchChallengeDetail()

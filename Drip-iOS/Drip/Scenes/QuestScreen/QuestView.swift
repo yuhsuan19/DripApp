@@ -9,16 +9,18 @@ import SwiftUI
 import CoreGraphics
 
 struct QuestView: View {
+
     @State private var timeRemaining: CGFloat = 10.0
     let totalTime: CGFloat = 10.0
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
+    @Binding var questIndex: Int
     var onComplete: (() -> Void)?
 
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .bottom, spacing: 0) {
-                Text("Question 5 / 10")
+                Text("Question \(questIndex + 1) / 3")
                     .font(.custom("LondrinaSolid-Regular", size: 36))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.black)
@@ -46,7 +48,7 @@ struct QuestView: View {
             .clipShape(RoundedRectangle(cornerRadius: 2.5))
 
             Spacer().frame(height: 20)
-            Text(sampleQuestion())
+            Text(currentQuestion())
                 .font(.system(size: 30, weight: .bold))
                 .frame(alignment: .top)
                 .minimumScaleFactor(0.5)
@@ -55,16 +57,16 @@ struct QuestView: View {
             Spacer().frame(height: 20)
 
             VStack(spacing: 16) {
-                StokeButton(title: "地窖、地下室") {
+                StokeButton(title: currentAnswers()[0]) {
                     onComplete?()
                 }
-                StokeButton(title: "原因、起因") {
+                StokeButton(title: currentAnswers()[1]) {
                     onComplete?()
                 }
-                StokeButton(title: "大災難") {
+                StokeButton(title: currentAnswers()[2]) {
                     onComplete?()
                 }
-                StokeButton(title: "家務雜物"){
+                StokeButton(title: currentAnswers()[3]){
                     onComplete?()
                 }
             }
@@ -77,9 +79,42 @@ struct QuestView: View {
                 timeRemaining -= 0.1
             }
         }
+        .onChange(of: questIndex) {
+            timeRemaining = totalTime
+        }
     }
 
-    func sampleQuestion() -> AttributedString {
+     func currentQuestion() -> AttributedString {
+         let questions = [
+             ("The earthquake was a terrible catastrophe.", "catastrophe"),
+             ("He took out the binoculars and adjusted the focus.", "binoculars"),
+             ("Americans are called to enact this promise in our lives and in our laws.", "enact")
+         ]
+
+         let (sentence, word) = questions[questIndex % questions.count]
+         return highlightWord(in: sentence, word: word)
+     }
+
+     func currentAnswers() -> [String] {
+         let answers = [
+             ["地窖、地下室", "原因、起因", "大災難", "家務雜物"],
+             ["按鈕", "登機卡", "後車箱", "雙筒望遠鏡"],
+             ["制定法律", "約定", "教導", "處置"]
+         ]
+         return answers[questIndex % answers.count]
+     }
+
+    func highlightWord(in sentence: String, word: String) -> AttributedString {
+         let textColor = UIColor.black
+         let range = (sentence.lowercased() as NSString).range(of: word.lowercased())
+         let mutableAttributedString = NSMutableAttributedString(string: sentence)
+         mutableAttributedString.addAttribute(.foregroundColor, value: textColor, range: NSRange(location: 0, length: sentence.count))
+         mutableAttributedString.addAttribute(.foregroundColor, value: UIColor(red: 57/255, green: 167/255, blue: 255/255, alpha: 1), range: range)
+         return AttributedString(mutableAttributedString)
+     }
+
+
+    func sampleQuestion_0() -> AttributedString {
         let sentence = "The earthquake was a terrible catastrophe."
         let word = "catastrophe"
 
@@ -92,14 +127,44 @@ struct QuestView: View {
 
         return AttributedString(mutableAttributedString)
     }
-}
 
-#Preview {
-    VStack {
-        QuestView()
+    func sampleAnswers_0() -> [String] {
+        return ["地窖、地下室", "原因、起因", "大災難", "家務雜物"]
     }
-    .padding(.horizontal, 24)
-    .padding(.top, 24)
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
-    .background(DripColor.backgroundGrey.ignoresSafeArea())
+
+    func sampleQuestion_1() -> AttributedString {
+        let sentence = "He took out the binoculars and adjusted the focus."
+        let word = "binoculars"
+
+        let textColor = UIColor.black
+
+        let range = (sentence.lowercased() as NSString).range(of: word.lowercased())
+        let mutableAttributedString = NSMutableAttributedString.init(string: sentence)
+        mutableAttributedString.addAttribute(.foregroundColor, value: textColor, range: NSRange(location: 0, length: sentence.count))
+        mutableAttributedString.addAttribute(.foregroundColor, value: UIColor(red: 57/255, green: 167/255, blue: 255/255, alpha: 1), range: range)
+
+        return AttributedString(mutableAttributedString)
+    }
+
+    func sampleAnswers_1() -> [String] {
+        return ["按鈕", "登機卡", "後車箱", "雙筒望遠鏡"]
+    }
+
+    func sampleQuestion_2() -> AttributedString {
+        let sentence = "Americans are called to enact this promise in our lives and in our laws."
+        let word = "enact"
+
+        let textColor = UIColor.black
+
+        let range = (sentence.lowercased() as NSString).range(of: word.lowercased())
+        let mutableAttributedString = NSMutableAttributedString.init(string: sentence)
+        mutableAttributedString.addAttribute(.foregroundColor, value: textColor, range: NSRange(location: 0, length: sentence.count))
+        mutableAttributedString.addAttribute(.foregroundColor, value: UIColor(red: 57/255, green: 167/255, blue: 255/255, alpha: 1), range: range)
+
+        return AttributedString(mutableAttributedString)
+    }
+
+    func sampleAnswers_2() -> [String] {
+        return ["制定法律", "約定", "教導", "處置"]
+    }
 }
