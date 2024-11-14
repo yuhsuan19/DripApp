@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BigInt
 
 struct ChallengePoolScreen: View {
     var onLogOut: (() -> Void)?
@@ -56,7 +57,7 @@ struct ChallengePoolScreen: View {
             .background(.clear)
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .onChange(of: selectedPoolIndex) {
-                print("Selected pool index: \(selectedPoolIndex)")
+                DripProfileContract.epochId = BigUInt(selectedPoolIndex)
             }
             // content
             VStack(spacing: 20) {
@@ -81,7 +82,7 @@ struct ChallengePoolScreen: View {
                     LazyVGrid(columns: columns, spacing: 16, content: {
                         ForEach(viewModel.challenges) { challenge in
                             NavigationLink(destination: {
-                                let viewModel = ChallengeDetailViewModel(tokenId: challenge.rawId, rpcService: viewModel.rpcService)
+                                let viewModel = ChallengeDetailViewModel(challenge: challenge, rpcService: viewModel.rpcService)
                                 ChallengeDetailScreen(viewModel: viewModel)
                             }) {
                                 VStack(spacing: 12) {

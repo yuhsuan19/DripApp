@@ -1,80 +1,13 @@
 //
-//  DripChallengeContract.swift
+//  GetChallngeDetail.swift
 //  Drip
-//c
-//  Created by Shane Chi on 2024/11/13.
+//
+//  Created by Shane Chi on 2024/11/14.
 //
 
 import Foundation
 import web3
 import BigInt
-
-final class DripChallengeContract {
-    private let rpcService: RPCService
-    private let contractAddress: EthereumAddress
-
-    init(rpcService: RPCService, contractAddress: String) {
-        self.rpcService = rpcService
-        self.contractAddress = EthereumAddress(stringLiteral: contractAddress)
-    }
-
-    func getChallengeDetail(tokenId: BigUInt) async {
-        do {
-            let response = try await GetChallengeDetail(contract: contractAddress, tokenId: tokenId)
-                .call(withClient: rpcService.client, responseType: GetChallengeDetailResponse.self)
-            print(response.challenge)
-        } catch {
-            print("Fail to get challenge: \(error)")
-        }
-    }
-}
-
-struct GetChallengeDetail: ABIFunction {
-    static let name = "getChallenge"
-
-    let contract: web3.EthereumAddress
-    let gasPrice: BigUInt? = nil
-    let gasLimit: BigUInt? = nil
-    let from: web3.EthereumAddress? = nil
-
-    private let tokenId: BigUInt
-//    private let epochId: BigUInt
-
-    init(
-        contract: web3.EthereumAddress,
-        tokenId: BigUInt
-//        epochId: BigUInt
-    ) {
-        self.contract = contract
-        self.tokenId = tokenId
-//        self.epochId = epochId
-    }
-
-    public func encode(to encoder: web3.ABIFunctionEncoder) throws {
-        try encoder.encode(tokenId)
-//        try encoder.encode(epochId)
-    }
-}
-
-struct GetChallengeDetailResponse: ABIResponse {
-    static var types: [web3.ABIType.Type] = [DripChallengeDetail.self]
-
-    let challenge: DripChallenge
-
-    init?(values: [web3.ABIDecoder.DecodedValue]) throws {
-        return nil
-    }
-
-    init?(data: String) throws {
-        do {
-            let result = try ABIDecoder.decodeData(data, types: [DripChallengeDetail.self])
-            challenge = try result[0].decoded()
-        } catch {
-            print("Fail to decode profile data: \(error)")
-            return nil
-        }
-    }
-}
 
 struct DripChallengeDetail: ABITuple {
     static var types: [ABIType.Type] { [

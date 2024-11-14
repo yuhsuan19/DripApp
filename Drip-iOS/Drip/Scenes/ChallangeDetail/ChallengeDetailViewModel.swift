@@ -10,21 +10,34 @@ import web3
 import BigInt
 
 final class ChallengeDetailViewModel: ObservableObject {
-    @Published var challenge: DripChallenge?
-
-    let tokenId: BigUInt
+    @Published var challenge: DripChallenge
     let rpcService: RPCService
 
     private lazy var challengeContract = DripChallengeContract(rpcService: rpcService, contractAddress: DripContracts.challenge)
 
-    init(tokenId: BigUInt, rpcService: RPCService) {
-        self.tokenId = tokenId
+    init(challenge: DripChallenge, rpcService: RPCService) {
+        self.challenge = challenge
         self.rpcService = rpcService
     }
 
     func fetchChallengeDetail() {
         Task {
-            await challengeContract.getChallengeDetail(tokenId: tokenId)
+            if let challenge = await challengeContract.getChallengeDetail(tokenId: challenge.rawId) {
+                DispatchQueue.main.sync { [weak self] in
+                    guard let self = self else { return }
+                    self.challenge = challenge
+                }
+            }
         }
+    }
+
+    func submitDailyCheck() {
+        Task {
+            let result = await challengeContract.submitDailyCheck(tokenId: challenge.rawId, day: 0)
+            if result {
+                print("Submit daily check success")
+            }
+        }
+
     }
 }

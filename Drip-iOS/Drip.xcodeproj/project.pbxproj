@@ -30,6 +30,9 @@
 		345D9E1C2CE34BB700682058 /* CreateChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D9E1B2CE34BB700682058 /* CreateChallengeViewModel.swift */; };
 		345D9E1E2CE4AE8000682058 /* DripChallengeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D9E1D2CE4AE8000682058 /* DripChallengeContract.swift */; };
 		345D9E202CE4B18800682058 /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D9E1F2CE4B18800682058 /* ChallengeDetailViewModel.swift */; };
+		345D9E232CE596F700682058 /* GetChallngeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D9E222CE596F700682058 /* GetChallngeDetail.swift */; };
+		345D9E262CE5989200682058 /* GetChallengeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D9E252CE5989200682058 /* GetChallengeDetail.swift */; };
+		345D9E282CE5993C00682058 /* SubmitDailyCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D9E272CE5993C00682058 /* SubmitDailyCompletion.swift */; };
 		348D93302CE248FF008E4AF0 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D932F2CE248FF008E4AF0 /* ChallengeCell.swift */; };
 		348D93322CE26297008E4AF0 /* QuestResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D93312CE26297008E4AF0 /* QuestResultScreen.swift */; };
 		348D93352CE26AA4008E4AF0 /* CreateChallengeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D93342CE26AA4008E4AF0 /* CreateChallengeScreen.swift */; };
@@ -111,6 +114,9 @@
 		345D9E1B2CE34BB700682058 /* CreateChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeViewModel.swift; sourceTree = "<group>"; };
 		345D9E1D2CE4AE8000682058 /* DripChallengeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DripChallengeContract.swift; sourceTree = "<group>"; };
 		345D9E1F2CE4B18800682058 /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
+		345D9E222CE596F700682058 /* GetChallngeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChallngeDetail.swift; sourceTree = "<group>"; };
+		345D9E252CE5989200682058 /* GetChallengeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChallengeDetail.swift; sourceTree = "<group>"; };
+		345D9E272CE5993C00682058 /* SubmitDailyCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitDailyCompletion.swift; sourceTree = "<group>"; };
 		348D932F2CE248FF008E4AF0 /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
 		348D93312CE26297008E4AF0 /* QuestResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestResultScreen.swift; sourceTree = "<group>"; };
 		348D93342CE26AA4008E4AF0 /* CreateChallengeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeScreen.swift; sourceTree = "<group>"; };
@@ -257,6 +263,25 @@
 				3433B6922CD91890002FCA1E /* DripAvatar.swift */,
 			);
 			path = SetProfile;
+			sourceTree = "<group>";
+		};
+		345D9E212CE596CF00682058 /* ChallengeContract */ = {
+			isa = PBXGroup;
+			children = (
+				345D9E242CE5987900682058 /* Models */,
+				345D9E1D2CE4AE8000682058 /* DripChallengeContract.swift */,
+				345D9E252CE5989200682058 /* GetChallengeDetail.swift */,
+				345D9E272CE5993C00682058 /* SubmitDailyCompletion.swift */,
+			);
+			path = ChallengeContract;
+			sourceTree = "<group>";
+		};
+		345D9E242CE5987900682058 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				345D9E222CE596F700682058 /* GetChallngeDetail.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		348D93332CE26A86008E4AF0 /* CreateChallenge */ = {
@@ -408,11 +433,11 @@
 		34AC126B2CC39E1D001044D3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				345D9E212CE596CF00682058 /* ChallengeContract */,
 				349025822CE0AB90004ECB8F /* DripERC20Contract */,
 				3490256F2CDF5091004ECB8F /* ProfileContract */,
 				3433B66C2CD22797002FCA1E /* Web3AuthService.swift */,
 				3490256B2CDF47A8004ECB8F /* RPCService.swift */,
-				345D9E1D2CE4AE8000682058 /* DripChallengeContract.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -584,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3490256E2CDF4874004ECB8F /* Web3Auth+Extension.swift in Sources */,
+				345D9E262CE5989200682058 /* GetChallengeDetail.swift in Sources */,
 				3494BB842CCE148A00490373 /* DripColor.swift in Sources */,
 				3494BB882CCE196C00490373 /* SignInViewModel.swift in Sources */,
 				3433B67E2CD3C8FF002FCA1E /* ProfileRow.swift in Sources */,
@@ -626,9 +652,11 @@
 				348D93352CE26AA4008E4AF0 /* CreateChallengeScreen.swift in Sources */,
 				3433B67A2CD3B460002FCA1E /* CircleAvatar.swift in Sources */,
 				3433B6652CD0DA2E002FCA1E /* ActionButton.swift in Sources */,
+				345D9E282CE5993C00682058 /* SubmitDailyCompletion.swift in Sources */,
 				3433B6852CD6657D002FCA1E /* TopToolBar.swift in Sources */,
 				348D93302CE248FF008E4AF0 /* ChallengeCell.swift in Sources */,
 				3433B68C2CD67B66002FCA1E /* QuestView.swift in Sources */,
+				345D9E232CE596F700682058 /* GetChallngeDetail.swift in Sources */,
 				349025712CDF50AE004ECB8F /* GetProfile.swift in Sources */,
 				349025732CDF52BA004ECB8F /* DripProfileContract.swift in Sources */,
 				349025772CDF5454004ECB8F /* CreateProfile.swift in Sources */,

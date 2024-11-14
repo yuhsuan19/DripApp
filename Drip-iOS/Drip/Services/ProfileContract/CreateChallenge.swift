@@ -49,7 +49,6 @@ struct CreateChallenge: ABIFunction {
         try encoder.encode(profileId)
         try encoder.encode(name)
         try encoder.encode(desc)
-        try encoder.encode(stakeToken)
         try encoder.encode(stakeAmount)
         try encoder.encode(duration)
     }
@@ -61,7 +60,6 @@ struct CreateChallengeTuple: ABITuple {
         BigUInt.self,
         String.self,
         String.self,
-        EthereumAddress.self,
         BigUInt.self,
         UInt16.self
     ] }
@@ -69,7 +67,6 @@ struct CreateChallengeTuple: ABITuple {
     let profileId: BigUInt
     let name: String
     let desc: String
-    let stakeToken: EthereumAddress
     let stakeAmount: BigUInt
     let duration: UInt16
 
@@ -84,7 +81,6 @@ struct CreateChallengeTuple: ABITuple {
         self.profileId = profileId
         self.name = name
         self.desc = desc
-        self.stakeToken = stakeToken
         self.stakeAmount = stakeAmount
         self.duration = duration
     }
@@ -97,7 +93,6 @@ struct CreateChallengeTuple: ABITuple {
         try encoder.encode(profileId)
         try encoder.encode(name)
         try encoder.encode(desc)
-        try encoder.encode(stakeToken)
         try encoder.encode(stakeAmount)
         try encoder.encode(duration)
     }
@@ -106,7 +101,6 @@ struct CreateChallengeTuple: ABITuple {
         profileId,
         name,
         desc,
-        stakeToken,
         stakeAmount,
         duration
     ] }

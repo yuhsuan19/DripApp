@@ -117,7 +117,8 @@ struct ChallengeDetailScreen: View {
             }
             .padding(.horizontal, 24)
             ActionButton(title: "Daily Quest") {
-                isPresentingQuestScreen = true
+//                isPresentingQuestScreen = true
+                viewModel.submitDailyCheck()
             }
             .padding(.horizontal, 24)
         }
