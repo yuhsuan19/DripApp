@@ -39,53 +39,53 @@ struct ChallengeDetailScreen: View {
             
             ScrollView {
                 VStack(spacing: 12) {
-                    Image(.challenge0)
+                    viewModel.challenge.nftImage
                         .resizable()
                         .aspectRatio(1, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                         .clipShape(RoundedRectangle(cornerRadius: 24))
                         .overlay(RoundedRectangle(cornerRadius: 24).stroke(.black, lineWidth: 2))
                     HStack {
                         VStack(spacing: 6) {
-                            Text("11/16")
+                            Text(viewModel.challenge.displayDates[0])
                                 .font(.system(size: 10))
                                 .foregroundStyle(DripColor.primary500Disabled)
-                            DripColor.primary500Primary
+                            viewModel.challenge.dailyStatus(index: 0)
                                 .frame(width: 16, height: 16)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                         VStack(spacing: 6) {
-                            Text("11/16")
+                            Text(viewModel.challenge.displayDates[1])
                                 .font(.system(size: 10))
                                 .foregroundStyle(DripColor.primary500Disabled)
-                            DripColor.primary500Primary
+                            viewModel.challenge.dailyStatus(index: 1)
                                 .frame(width: 16, height: 16)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                         VStack(spacing: 6) {
-                            Text("11/16")
+                            Text(viewModel.challenge.displayDates[2])
                                 .font(.system(size: 10))
                                 .foregroundStyle(DripColor.primary500Disabled)
-                            DripColor.primary500Primary
+                            viewModel.challenge.dailyStatus(index: 2)
                                 .frame(width: 16, height: 16)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                         VStack(spacing: 6) {
-                            Text("11/16")
+                            Text(viewModel.challenge.displayDates[3])
                                 .font(.system(size: 10))
                                 .foregroundStyle(DripColor.primary500Disabled)
-                            DripColor.primary500Primary
+                            viewModel.challenge.dailyStatus(index: 3)
                                 .frame(width: 16, height: 16)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                         VStack(spacing: 6) {
-                            Text("11/16")
+                            Text(viewModel.challenge.displayDates[4])
                                 .font(.system(size: 10))
                                 .foregroundStyle(DripColor.primary500Disabled)
-                            DripColor.primary500Primary
+                            viewModel.challenge.dailyStatus(index: 4)
                                 .frame(width: 16, height: 16)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
@@ -97,16 +97,16 @@ struct ChallengeDetailScreen: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 2))
                     VStack(spacing: 4) {
-                        Text("Challenges name")
+                        Text(viewModel.challenge.title)
                             .font(.custom("LondrinaSolid-Regular", size: 36))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundColor(.black)
-                        Text("30 USDC Staked")
+                        Text("\(viewModel.challenge.displayedStakedAmount) \(DripContracts.dripERC20TokenSymbol) Staked")
                             .font(.system(size: 16, weight: .medium))
                             .foregroundStyle(.black)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Spacer().frame(height: 2)
-                        Text("This is a description This is a description This is a description This is a description This is a description This is a description")
+                        Text(viewModel.challenge.desc)
                             .font(.system(size: 16, weight: .regular))
                             .foregroundStyle(DripColor.primary500Disabled)
                             .frame(maxWidth: .infinity, alignment: .leading)

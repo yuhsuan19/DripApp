@@ -131,19 +131,29 @@ extension DripChallenge: Identifiable {
     var nftImage: Image {
         Image("challenge-\(numberOfChecked)")
     }
+
+    var displayDates: [String] {
+        let start = startTime.description.convertBigIntToDecimalFormat(decimals: 0, decimalPlaces: 0)
+        guard let timestamp = TimeInterval(start) else {
+            return []
+        }
+
+        var dates: [String] = []
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+
+        let startDate = Date(timeIntervalSince1970: timestamp)
+        for i in 0..<5 {
+            let nextDate = Calendar.current.date(byAdding: .day, value: i, to: startDate)!
+            let dateString = dateFormatter.string(from: nextDate)
+            dates.append(dateString)
+        }
+
+        return dates
+    }
+
+    func dailyStatus(index: Int) -> Color {
+        return dailyCompletionTimestamps[index].isZero ? Color(red: 213/255, green: 215/255, blue: 225/255) : DripColor.main
+    }
 }
 
-
-//struct DripSimpleChallenge: ABITuple {
-//    static var types: [ABIType.Type] { [
-//        BigUInt.self, // token id
-//        BigUInt.self, // epoch id
-//        String.self, // name
-//        BigUInt.self, // amount
-//        BigUInt.self // completed days
-//    ] }
-//
-//    let rawId: BigUInt
-//    let rawEpochId: BigUInt
-//
-//}
