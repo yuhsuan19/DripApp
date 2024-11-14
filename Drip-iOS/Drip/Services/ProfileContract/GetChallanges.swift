@@ -33,7 +33,7 @@ struct GetChallenges: ABIFunction {
 }
 
 struct GetChallengesResponse: ABIResponse {
-    static var types: [web3.ABIType.Type] = [ABIArray<DripChallenge>.self]
+    static var types: [web3.ABIType.Type] = [ABIArray<DripChallengeDetail>.self]
 
     var challenges: [DripChallenge] = []
 
@@ -43,7 +43,7 @@ struct GetChallengesResponse: ABIResponse {
 
     init?(data: String) throws {
         do {
-            let result = try ABIDecoder.decodeData(data, types: [ABIArray<DripChallenge>.self])
+            let result = try ABIDecoder.decodeData(data, types: [ABIArray<DripChallengeDetail>.self])
             challenges = try result[0].decodedTupleArray()
         } catch {
             print("Fail to decode profile data: \(error)")

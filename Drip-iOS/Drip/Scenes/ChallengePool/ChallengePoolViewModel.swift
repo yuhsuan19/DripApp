@@ -23,6 +23,7 @@ final class ChallengePoolViewModel: ObservableObject {
     func fetchChallenges() {
         Task {
             let challenges = await profileContract.getChallenges()
+            print(challenges)
             DispatchQueue.main.async {
                 self.challenges = challenges
             }
