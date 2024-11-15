@@ -80,35 +80,42 @@ struct ChallengePoolScreen: View {
                 // grid view
                 ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: columns, spacing: 16, content: {
-                        ForEach(viewModel.challenges) { challenge in
-                            NavigationLink(destination: {
-                                let viewModel = ChallengeDetailViewModel(challenge: challenge, rpcService: viewModel.rpcService)
-                                ChallengeDetailScreen(viewModel: viewModel)
-                            }) {
-                                VStack(spacing: 12) {
-                                    challenge.nftImage
-                                        .resizable()
-                                        .aspectRatio(1, contentMode: .fill)
-                                    VStack (spacing: 4) {
-                                        Text(challenge.title)
-                                            .lineLimit(1)
-                                            .minimumScaleFactor(0.5)
-                                            .font(.system(size: 16, weight: .medium))
-                                            .foregroundStyle(.black)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        Text("\(challenge.displayedStakedAmount) \(DripContracts.dripERC20TokenSymbol) Staked")
-                                            .font(.system(size: 12, weight: .regular))
-                                            .foregroundStyle(DripColor.primary500Disabled)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                    }                                            
-                                    .padding(.horizontal, 12)
+                        if viewModel.challenges.isEmpty {
+                            Image(.emptyListPlaceholder)
+                                .resizable()
+                                .frame(width: 164, height: 232)
+                        } else {
+                            ForEach(viewModel.challenges) { challenge in
+                                NavigationLink(destination: {
+                                    let viewModel = ChallengeDetailViewModel(challenge: challenge, rpcService: viewModel.rpcService)
+                                    ChallengeDetailScreen(viewModel: viewModel)
+                                }) {
+                                    VStack(spacing: 12) {
+                                        challenge.nftImage
+                                            .resizable()
+                                            .aspectRatio(1, contentMode: .fill)
+                                        VStack (spacing: 4) {
+                                            Text(challenge.title)
+                                                .lineLimit(1)
+                                                .minimumScaleFactor(0.5)
+                                                .font(.system(size: 16, weight: .medium))
+                                                .foregroundStyle(.black)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            Text("\(challenge.displayedStakedAmount) \(DripContracts.dripERC20TokenSymbol) Staked")
+                                                .font(.system(size: 12, weight: .regular))
+                                                .foregroundStyle(DripColor.primary500Disabled)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                        }
+                                        .padding(.horizontal, 12)
 
+                                    }
+                                    .padding(.bottom, 12)
+                                    .background(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 2))
                                 }
-                                .padding(.bottom, 12)
-                                .background(.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 2))
                             }
+
                         }
                     })
                     .padding(.top, 1.5)
