@@ -58,7 +58,12 @@ struct ChallengePoolScreen: View {
             .background(.clear)
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .onChange(of: selectedPoolIndex) {
-                DripProfileContract.epochId = BigUInt(selectedPoolIndex)
+                if selectedPoolIndex == 0 {
+                    DripProfileContract.epochId = BigUInt(1)
+                } else {
+                    DripProfileContract.epochId = BigUInt(0)
+                }
+                viewModel.fetchChallenges()
             }
             // content
             VStack(spacing: 20) {

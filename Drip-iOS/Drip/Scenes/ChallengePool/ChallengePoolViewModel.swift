@@ -20,7 +20,10 @@ final class ChallengePoolViewModel: ObservableObject {
         self.rpcService = rpcService
     }
 
-    func fetchChallenges() {
+    func fetchChallenges(refresh: Bool = false) {
+        DispatchQueue.main.async {
+            self.challenges = []
+        }
         Task {
             let challenges = await profileContract.getChallenges()
             print(challenges)

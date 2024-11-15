@@ -14,7 +14,7 @@ final class DripProfileContract {
     private let contractAddress: EthereumAddress
 
     static var profileId: BigUInt? = nil
-    static var epochId: BigUInt = 0
+    static var epochId: BigUInt = 1
 
     init(rpcService: RPCService, contractAddress: String) {
         self.rpcService = rpcService
