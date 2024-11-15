@@ -18,7 +18,7 @@ final class ChallengeManagerContract {
         self.contractAddress = EthereumAddress(stringLiteral: contractAddress)
     }
 
-    func getEpochInfo() async {
+    func getEpochInfo() async -> DripEpochInfo? {
         do {
             let epochId = DripProfileContract.epochId
             let response = try await GetEpochInfo(
@@ -28,8 +28,10 @@ final class ChallengeManagerContract {
                 withClient: rpcService.client,
                 responseType: GetEpochInfoResponse.self
             )
+            return response.ecpochInfo
         } catch {
-            print(error)
+            print("Fail to get epoch info: \(error)")
+            return nil
         }
     }
 }

@@ -11,6 +11,7 @@ import BigInt
 
 final class ChallengePoolViewModel: ObservableObject {
     @Published var challenges: [DripChallenge] = []
+    @Published var epochInfo: DripEpochInfo?
 
     let rpcService: RPCService
 
@@ -37,7 +38,12 @@ final class ChallengePoolViewModel: ObservableObject {
 
     func fetchEpochInfo() {
         Task {
-            await challengeManagerContract.getEpochInfo()
+            if let epochInfo = await challengeManagerContract.getEpochInfo() {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    self.epochInfo = epochInfo
+                }
+            }
         }
     }
 }

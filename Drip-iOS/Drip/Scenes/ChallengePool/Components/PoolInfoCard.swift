@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct PoolInfoCard: View {
+    @Binding var epochInfo: DripEpochInfo?
+    @Binding var poolName: String
+    @Binding var buttonTitle: String
+
     var onButtonTap: (() -> Void)?
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 20) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Pool Name")
+                    Text(poolName)
                         .font(.custom("LondrinaSolid-Regular", size: 36))
                         .foregroundStyle(.black)
                         .lineLimit(1)
                         .minimumScaleFactor(0.5)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Pool description. Pool description. Pool description. Pool description.")
+                    Text(epochInfo?.description ?? "-")
                         .font(.system(size: 12, weight: .regular))
                         .foregroundStyle(DripColor.primary500Disabled)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -27,7 +31,7 @@ struct PoolInfoCard: View {
                     Button(action: {
                         onButtonTap?()
                     }) {
-                        Text("View Leaderboard")
+                        Text(buttonTitle)
                             .padding(.horizontal, 12)
                             .padding(.vertical, 8)
                             .foregroundStyle(.white)
@@ -60,12 +64,4 @@ struct PoolInfoCard: View {
                 .stroke(.black, lineWidth: 2)
         )
     }
-}
-
-#Preview {
-    VStack {
-        PoolInfoCard()
-    }
-    .padding()
-    .background(DripColor.backgroundMain)
 }

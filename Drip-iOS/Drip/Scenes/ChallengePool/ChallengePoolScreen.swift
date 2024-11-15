@@ -46,7 +46,11 @@ struct ChallengePoolScreen: View {
             // pool info card
             TabView(selection: $selectedPoolIndex) {
                 ForEach(0...1, id: \.self) { index in
-                    PoolInfoCard()
+                    PoolInfoCard(
+                        epochInfo: $viewModel.epochInfo,
+                        poolName: selectedPoolIndex == 0 ? .constant("Active Pool") : .constant("Finished Pool"),
+                        buttonTitle: selectedPoolIndex == 0 ?
+                            .constant("View Leaderboard") : .constant("Claim Rewards"))
                         .padding(.horizontal, 12)
                         .padding(.vertical, 1)
                         .tag(index)
