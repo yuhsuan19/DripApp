@@ -47,11 +47,12 @@ struct ChallengePoolScreen: View {
             TabView(selection: $selectedPoolIndex) {
                 ForEach(0...1, id: \.self) { index in
                     PoolInfoCard()
-                        .padding(.horizontal, 12) // 增加水平間距
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 1)
                         .tag(index)
                 }
             }
-            .frame(height: 206)
+            .frame(height: 240)
             .padding(.vertical, 0)
             .padding(.horizontal, 12)
             .background(.clear)

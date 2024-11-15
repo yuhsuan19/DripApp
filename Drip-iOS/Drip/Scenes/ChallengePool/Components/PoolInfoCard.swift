@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct PoolInfoCard: View {
+    var onButtonTap: (() -> Void)?
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 20) {
-                VStack(spacing: 4) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text("Pool Name")
                         .font(.custom("LondrinaSolid-Regular", size: 36))
                         .foregroundStyle(.black)
@@ -22,6 +23,18 @@ struct PoolInfoCard: View {
                         .font(.system(size: 12, weight: .regular))
                         .foregroundStyle(DripColor.primary500Disabled)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                    Spacer().frame(height: 4)
+                    Button(action: {
+                        onButtonTap?()
+                    }) {
+                        Text("View Leaderboard")
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .foregroundStyle(.white)
+                            .background(.black)
+                            .font(.system(size: 14))
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
                 }
                 Image(.poolActive)
                     .resizable()
