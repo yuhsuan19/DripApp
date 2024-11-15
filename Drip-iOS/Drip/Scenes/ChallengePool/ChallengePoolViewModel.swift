@@ -15,6 +15,7 @@ final class ChallengePoolViewModel: ObservableObject {
     let rpcService: RPCService
 
     private lazy var profileContract = DripProfileContract(rpcService: rpcService, contractAddress: DripContracts.profile)
+    private lazy var challengeManagerContract = ChallengeManagerContract(rpcService: rpcService, contractAddress: DripContracts.challengeManager)
 
     init(rpcService: RPCService) {
         self.rpcService = rpcService
@@ -31,6 +32,12 @@ final class ChallengePoolViewModel: ObservableObject {
                 self.challenges = challenges
             }
             print("Fetch challenges. Count: \(challenges.count)")
+        }
+    }
+
+    func fetchEpochInfo() {
+        Task {
+            await challengeManagerContract.getEpochInfo()
         }
     }
 }

@@ -64,6 +64,7 @@ struct ChallengePoolScreen: View {
                     DripProfileContract.epochId = BigUInt(0)
                 }
                 viewModel.fetchChallenges()
+                viewModel.fetchEpochInfo()
             }
             // content
             VStack(spacing: 20) {
@@ -133,6 +134,7 @@ struct ChallengePoolScreen: View {
             .background(.clear)
             .sheet(isPresented: $isPresentingProfileScreen, onDismiss: {
                 viewModel.fetchChallenges()
+                viewModel.fetchEpochInfo()
             }) {
                 let viewModel = ProfileViewModel(rpcService: viewModel.rpcService)
                 ProfileScreen(viewModel: viewModel) {
@@ -141,6 +143,7 @@ struct ChallengePoolScreen: View {
             }
             .sheet(isPresented: $isPresentingCreateChallengeScreen, onDismiss: {
                 viewModel.fetchChallenges()
+                viewModel.fetchEpochInfo()
             }) {
                 let viewModel = CreateChallengeViewModel(rpcService: viewModel.rpcService)
                 CreateChallengeScreen(viewModel: viewModel)
@@ -150,6 +153,7 @@ struct ChallengePoolScreen: View {
         .padding(.all, 0)
         .onAppear {
             viewModel.fetchChallenges()
+            viewModel.fetchEpochInfo()
         }
     }
 }
