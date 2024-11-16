@@ -6,11 +6,41 @@
 //
 
 import SwiftUI
+import BigInt
 
 struct PoolInfoCard: View {
     @Binding var epochInfo: DripEpochInfo?
-    @Binding var poolName: String
-    @Binding var buttonTitle: String
+    @Binding var isActive: Bool
+
+    private var poolName: String  {
+        isActive ? "Active Pool" : "Finished Pool"
+    }
+    private var buttonTitle: String {
+        isActive ? "View Leaderboard" : "Claim Rewards"
+    }
+    private var bgColor: Color {
+        isActive ? DripColor.activePoolBg : DripColor.primary500Primary.opacity(0.2)
+    }
+    private var img: Image {
+        isActive ? Image(.poolActive) : Image(.poolEnded)
+    }
+
+    private var participantsCount: String {
+        epochInfo?.displayedParticipants ?? "-"
+    }
+
+    private var daysRemaining: String {
+        let days = epochInfo?.daysRemaining() ?? 0
+        if days >= 0 {
+            return String(days)
+        } else {
+            return "-"
+        }
+    }
+
+    private var totalStakedAmount: String {
+        epochInfo?.totalStakedAmount ?? "-"
+    }
 
     var onButtonTap: (() -> Void)?
     var body: some View {
@@ -40,17 +70,15 @@ struct PoolInfoCard: View {
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                     }
                 }
-                Image(.poolActive)
-                    .resizable()
-                    .frame(width: 98, height: 80)
+                img.resizable().frame(width: 98, height: 80)
             }
             .frame(maxWidth: .infinity)
             .padding(.all, 16)
-            .background(DripColor.activePoolBg)
+            .background(bgColor)
             HStack {
-                PoolInfoChip(mainText: "30", subText: "Days Remaining")
-                PoolInfoChip(mainText: "16", subText: "Participants")
-                PoolInfoChip(mainText: "1,500", subText: "USDC Staked")
+                PoolInfoChip(mainText: .constant(daysRemaining), subText: .constant("Days Remaining"))
+                PoolInfoChip(mainText: .constant(participantsCount), subText: .constant("Participants"))
+                PoolInfoChip(mainText: .constant(totalStakedAmount), subText: .constant("USDC Staked"))
             }
             .padding(.all, 16)
             .background(.white)

@@ -90,3 +90,29 @@ struct DripEpochInfo: ABITuple {
         description
     ] }
 }
+
+extension DripEpochInfo {
+    var displayedParticipants: String {
+        participantCount.description
+    }
+
+    func daysRemaining() -> Int {
+        let now = Date()
+        let end = endTimestamp.description
+        let targetDate = Date(timeIntervalSince1970: Double(end) ?? 0)
+
+        let calendar = Calendar.current
+        guard let daysDifference = calendar.dateComponents([.day], from: now, to: targetDate).day else {
+            return 0
+        }
+
+        return daysDifference
+    }
+
+    var totalStakedAmount: String {
+        totalDeposits.description.convertBigIntToDecimalFormat(
+            decimals: 18,
+            decimalPlaces: 1
+        )
+    }
+}

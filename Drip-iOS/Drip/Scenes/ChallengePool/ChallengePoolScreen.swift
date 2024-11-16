@@ -48,9 +48,7 @@ struct ChallengePoolScreen: View {
                 ForEach(0...1, id: \.self) { index in
                     PoolInfoCard(
                         epochInfo: $viewModel.epochInfo,
-                        poolName: selectedPoolIndex == 0 ? .constant("Active Pool") : .constant("Finished Pool"),
-                        buttonTitle: selectedPoolIndex == 0 ?
-                            .constant("View Leaderboard") : .constant("Claim Rewards"))
+                        isActive: selectedPoolIndex == 0 ? .constant(true) : .constant(false))
                         .padding(.horizontal, 12)
                         .padding(.vertical, 1)
                         .tag(index)

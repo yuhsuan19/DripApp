@@ -39,6 +39,7 @@ final class ChallengePoolViewModel: ObservableObject {
     func fetchEpochInfo() {
         Task {
             if let epochInfo = await challengeManagerContract.getEpochInfo() {
+                print("get epoch info: \(epochInfo)")
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
                     self.epochInfo = epochInfo

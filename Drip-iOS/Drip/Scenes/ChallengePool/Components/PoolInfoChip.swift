@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PoolInfoChip: View {
-    @State var mainText: String
-    @State var subText: String
+    @Binding var mainText: String
+    @Binding var subText: String
     var body: some View {
         VStack(spacing: 4) {
             Text(mainText)
@@ -27,6 +27,3 @@ struct PoolInfoChip: View {
     }
 }
 
-#Preview {
-    PoolInfoChip(mainText: "1,500", subText: "USDC Staked")
-}
