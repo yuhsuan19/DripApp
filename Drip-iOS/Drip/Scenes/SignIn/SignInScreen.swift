@@ -5,6 +5,7 @@
 //  Created by Shane Chi
 
 import SwiftUI
+import ProgressHUD
 
 struct SignInScreen: View {
 
@@ -39,6 +40,7 @@ struct SignInScreen: View {
                 .keyboardType(.emailAddress)
             Spacer()
             ActionButton(title: "Sign in With Web3Auth") {
+                ProgressHUD.animate("Almost there 🤜🤛")
                 viewModel.signIn(with: emailText)
             }
         }
@@ -47,7 +49,15 @@ struct SignInScreen: View {
         .background(DripColor.backgroundGrey.ignoresSafeArea())
         .onChange(of: viewModel.isSignedIn) {
             guard viewModel.isSignedIn else { return }
+            ProgressHUD.dismiss()
             onSignIn?()
+            viewModel.isSignedIn = false
+        }
+        .onChange(of: viewModel.needToSetProfile) {
+            if viewModel.needToSetProfile {
+                ProgressHUD.dismiss()
+                viewModel.isSignedIn = false
+            }
         }
         .navigationDestination(isPresented: $viewModel.needToSetProfile) {
             if let rpcService = viewModel.rpcService {

@@ -5,6 +5,7 @@
 //  Created by Shane Chi
 
 import SwiftUI
+import ProgressHUD
 
 struct CreateChallengeScreen: View {
     @State private var name: String = ""
@@ -67,6 +68,7 @@ struct CreateChallengeScreen: View {
             }
             Spacer()
             ActionButton(title: "Create", backgroundColor: DripColor.warning) {
+                ProgressHUD.animate("Almost there 🤜🤛")
                 viewModel.createChallenge(name: name, desc: desc, stakeAmount: amount)
             }
         }
@@ -76,6 +78,7 @@ struct CreateChallengeScreen: View {
         .onChange(of: viewModel.isChallengeCreated) {
             if viewModel.isChallengeCreated {
                 dismiss()
+                ProgressHUD.dismiss()
             }
         }
     }
