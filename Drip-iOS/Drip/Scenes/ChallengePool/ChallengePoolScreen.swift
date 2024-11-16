@@ -15,6 +15,7 @@ struct ChallengePoolScreen: View {
 
     @State private var isPresentingProfileScreen = false
     @State private var isPresentingCreateChallengeScreen = false
+    @State private var isPresentingLeaderBoardScreen = false
     @State private var selectedPoolIndex = 0
 
     let columns = [GridItem(spacing: 16), GridItem()]
@@ -48,10 +49,13 @@ struct ChallengePoolScreen: View {
                 ForEach(0...1, id: \.self) { index in
                     PoolInfoCard(
                         epochInfo: $viewModel.epochInfo,
-                        isActive: selectedPoolIndex == 0 ? .constant(true) : .constant(false))
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 1)
-                        .tag(index)
+                        isActive: selectedPoolIndex == 0 ? .constant(true) : .constant(false)
+                    ) {
+                        onCardButtonTap()
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 1)
+                    .tag(index)
                 }
             }
             .frame(height: 240)
@@ -150,12 +154,23 @@ struct ChallengePoolScreen: View {
                 let viewModel = CreateChallengeViewModel(rpcService: viewModel.rpcService)
                 CreateChallengeScreen(viewModel: viewModel)
             }
+            .sheet(isPresented: $isPresentingLeaderBoardScreen) {
+                Leaderboard()
+            }
         }
         .background(DripColor.backgroundMain.ignoresSafeArea())
         .padding(.all, 0)
         .onAppear {
             viewModel.fetchChallenges()
             viewModel.fetchEpochInfo()
+        }
+    }
+
+    private func onCardButtonTap() {
+        if selectedPoolIndex == 0 {
+            isPresentingLeaderBoardScreen = true
+        } else {
+            // claim
         }
     }
 }
