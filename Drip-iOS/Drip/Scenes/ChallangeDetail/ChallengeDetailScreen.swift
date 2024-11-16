@@ -2,8 +2,7 @@
 //  ChallengeDetailScreen.swift
 //  Drip
 //
-//  Created by Shane Chi on 2024/11/2.
-//
+//  Created by Shane Chi
 
 import SwiftUI
 

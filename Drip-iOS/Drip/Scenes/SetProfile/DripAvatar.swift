@@ -2,8 +2,7 @@
 //  DripAvatar.swift
 //  Drip
 //
-//  Created by Shane Chi on 2024/11/4.
-//
+//  Created by Shane Chi
 
 import SwiftUI
 

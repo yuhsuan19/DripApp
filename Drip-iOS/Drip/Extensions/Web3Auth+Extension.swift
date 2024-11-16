@@ -2,8 +2,7 @@
 //  Web3Auth+Extension.swift
 //  Drip
 //
-//  Created by Shane Chi on 2024/11/9.
-//
+//  Created by Shane Chi
 
 import Foundation
 import Web3Auth

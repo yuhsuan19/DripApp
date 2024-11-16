@@ -2,8 +2,7 @@
 //  ChallengeDetailViewModel.swift
 //  Drip
 //
-//  Created by Shane Chi on 2024/11/13.
-//
+//  Created by Shane Chi
 
 import Foundation
 import web3

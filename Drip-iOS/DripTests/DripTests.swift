@@ -2,8 +2,7 @@
 //  DripTests.swift
 //  DripTests
 //
-//  Created by Shane Chi on 2024/10/19.
-//
+//  Created by Shane Chi 
 
 import XCTest
 @testable import Drip

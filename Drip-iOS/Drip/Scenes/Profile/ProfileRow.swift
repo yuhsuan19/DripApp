@@ -2,8 +2,7 @@
 //  ProfileRow.swift
 //  Drip
 //
-//  Created by Shane Chi on 2024/10/31.
-//
+//  Created by Shane Chi
 
 import SwiftUI
 

@@ -2,8 +2,7 @@
 //  EpochInfo.swift
 //  Drip
 //
-//  Created by Shane Chi on 2024/11/15.
-//
+//  Created by Shane Chi
 
 import Foundation
 import web3
